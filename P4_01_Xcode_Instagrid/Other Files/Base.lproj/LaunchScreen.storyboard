@@ -18,17 +18,45 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="KUk-bo-T54">
                                 <rect key="frame" x="72" y="353" width="270" height="190"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="8xm-ng-3bn"/>
+                                    <constraint firstAttribute="width" secondItem="KUk-bo-T54" secondAttribute="height" multiplier="27:19" id="H9p-Lg-U8c"/>
                                     <constraint firstAttribute="width" constant="270" id="hOM-FL-Ydh"/>
                                     <constraint firstAttribute="width" secondItem="KUk-bo-T54" secondAttribute="height" multiplier="27:19" id="iW2-Ro-d7H"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8xm-ng-3bn"/>
+                                        <exclude reference="H9p-Lg-U8c"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="8xm-ng-3bn"/>
+                                        <exclude reference="H9p-Lg-U8c"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KUk-bo-T54" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9Wc-dD-dS2"/>
+                            <constraint firstItem="KUk-bo-T54" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fZb-Qb-PHX"/>
                             <constraint firstItem="KUk-bo-T54" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="njm-41-Iex"/>
+                            <constraint firstItem="KUk-bo-T54" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vjw-ZQ-Fko"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fZb-Qb-PHX"/>
+                                <exclude reference="vjw-ZQ-Fko"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="fZb-Qb-PHX"/>
+                                <exclude reference="vjw-ZQ-Fko"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
