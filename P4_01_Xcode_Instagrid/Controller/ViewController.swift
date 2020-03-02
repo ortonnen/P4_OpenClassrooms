@@ -22,10 +22,36 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBOutlet weak var buttonLayout1: UIButton!
-    @IBOutlet weak var buttonLayout2: UIButton!
+   
+    @IBOutlet var buttonView: [UIButton]!
     
-    @IBOutlet weak var buttonLayout3: UIButton!
+    @IBOutlet weak var photo1: UIButton!
+    @IBOutlet weak var photo2: UIButton!
+    @IBOutlet weak var photo3: UIButton!
+    @IBOutlet weak var photo4: UIButton!
     
+    @IBAction func selectLayout1Button() {
+    }
+    @IBAction func selectLayout2Button() {
+    }
+    @IBAction func selectLayout3Button(_ sender: Any) {
+    }
+    
+    enum SelectButtonView {
+        case view1, view2, view3
+    }
+    
+    func selectButton(view : SelectButtonView) {
+        
+        switch view {
+        case .view1:
+            photo2.isHidden = true
+        case .view2:
+            photo4.isHidden = true
+        case .view3:
+           break
+        }
+        
+    }
 }
 

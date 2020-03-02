@@ -24,6 +24,9 @@
                                             <constraint firstAttribute="width" secondItem="Jus-mP-ded" secondAttribute="height" multiplier="1:1" id="2eI-kr-viv"/>
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 1"/>
+                                        <connections>
+                                            <action selector="selectLayout1Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OSd-lz-hTr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-WW-LVc" userLabel="Layout 2">
                                         <rect key="frame" x="104" y="0.0" width="80" height="80"/>
@@ -32,6 +35,9 @@
                                             <constraint firstAttribute="width" secondItem="Lat-WW-LVc" secondAttribute="height" multiplier="1:1" id="i8T-Oj-viI"/>
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 2"/>
+                                        <connections>
+                                            <action selector="selectLayout2Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="h6U-HQ-2wa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-eT-fr6" userLabel="Layout 3">
                                         <rect key="frame" x="208" y="0.0" width="80" height="80"/>
@@ -40,6 +46,9 @@
                                             <constraint firstAttribute="width" secondItem="N3n-eT-fr6" secondAttribute="height" multiplier="1:1" id="9rr-L0-ig3"/>
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 3"/>
+                                        <connections>
+                                            <action selector="selectLayout3Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bSH-DU-0kC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -115,6 +124,13 @@
                         <outlet property="buttonLayout1" destination="Jus-mP-ded" id="KTG-dn-MV5"/>
                         <outlet property="buttonLayout2" destination="Lat-WW-LVc" id="trT-oo-A4Y"/>
                         <outlet property="buttonLayout3" destination="N3n-eT-fr6" id="3i4-c8-PdG"/>
+                        <outlet property="photo1" destination="M9Z-Ej-QSh" id="ue5-Mx-uYb"/>
+                        <outlet property="photo2" destination="ri8-dO-1zd" id="xU4-yP-Get"/>
+                        <outlet property="photo3" destination="max-nI-XGT" id="Q7F-l8-r5Y"/>
+                        <outlet property="photo4" destination="KF4-xk-vdc" id="be6-PB-xkK"/>
+                        <outletCollection property="buttonView" destination="Jus-mP-ded" collectionClass="NSMutableArray" id="UBT-Kv-7Lb"/>
+                        <outletCollection property="buttonView" destination="Lat-WW-LVc" collectionClass="NSMutableArray" id="mCk-0O-OA9"/>
+                        <outletCollection property="buttonView" destination="N3n-eT-fr6" collectionClass="NSMutableArray" id="df9-Yk-zbX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
