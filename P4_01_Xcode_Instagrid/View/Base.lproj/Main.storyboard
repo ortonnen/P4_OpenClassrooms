@@ -44,11 +44,52 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhK-MG-91s" userLabel="Container photo View">
+                                <rect key="frame" x="16" y="140" width="288" height="288"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-vd-PLD" userLabel="photo View 1 &amp; 2">
+                                        <rect key="frame" x="8" y="8" width="133" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9Z-Ej-QSh" userLabel="Photo 1">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri8-dO-1zd" userLabel="Photo 2">
+                                                <rect key="frame" x="103" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15607842799999999" green="0.41368311639999999" blue="0.61028933529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="ghG-PK-HnU"/>
+                                    <constraint firstAttribute="width" secondItem="LhK-MG-91s" secondAttribute="height" multiplier="1:1" id="lkp-DP-pKz"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="kvX-ZL-aeh" userLabel="photo View 3 &amp; 4">
+                                <rect key="frame" x="94" y="381" width="133" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42V-oH-bGW" userLabel="Photo 3">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-A2-nrl" userLabel="Photo 4">
+                                        <rect key="frame" x="103" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1fz-kd-1zB" secondAttribute="bottom" constant="30" id="0sJ-gO-AWE"/>
                             <constraint firstItem="1fz-kd-1zB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DSx-Qx-HMJ"/>
+                            <constraint firstItem="LhK-MG-91s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KdK-EH-JuC"/>
+                            <constraint firstItem="LhK-MG-91s" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lvh-1Z-9bf"/>
+                            <constraint firstItem="LhK-MG-91s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xWk-cD-qyD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
