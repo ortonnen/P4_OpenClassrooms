@@ -49,15 +49,15 @@
                             <view contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhK-MG-91s" userLabel="Container photo View">
                                 <rect key="frame" x="6" y="103" width="288" height="288"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-vd-PLD" userLabel="photo View 1 &amp; 2">
+                                    <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-vd-PLD" userLabel="photo View 1 &amp; 2">
                                         <rect key="frame" x="8" y="8" width="272" height="129.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="bottom" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9Z-Ej-QSh" userLabel="Photo 1">
-                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="129.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="129.5"/>
                                                 <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri8-dO-1zd" userLabel="Photo 2">
-                                                <rect key="frame" x="137.5" y="0.0" width="134.5" height="129.5"/>
+                                                <rect key="frame" x="140" y="0.0" width="132" height="129.5"/>
                                                 <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </button>
                                         </subviews>
@@ -66,26 +66,33 @@
                                             <constraint firstAttribute="width" secondItem="IaJ-vd-PLD" secondAttribute="height" multiplier="21:10" id="jQw-qg-UoC"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="btb-aC-A5G" userLabel="photo View 3 &amp; 4">
-                                        <rect key="frame" x="31" y="193" width="68" height="30"/>
+                                    <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hbE-eq-DwX" userLabel="photo View 3 &amp; 4">
+                                        <rect key="frame" x="8" y="150.5" width="272" height="129.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="bottom" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tn8-G6-fOf" userLabel="Photo 3">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <button opaque="NO" contentMode="bottom" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="max-nI-XGT" userLabel="Photo 3">
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="129.5"/>
                                                 <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIz-xB-4Q9" userLabel="Photo 4">
-                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KF4-xk-vdc" userLabel="Photo 4">
+                                                <rect key="frame" x="140" y="0.0" width="132" height="129.5"/>
                                                 <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="KF4-xk-vdc" firstAttribute="height" secondItem="hbE-eq-DwX" secondAttribute="height" id="0oD-Ci-1q5"/>
+                                            <constraint firstAttribute="width" secondItem="hbE-eq-DwX" secondAttribute="height" multiplier="21:10" id="5ud-Sr-tQk"/>
+                                            <constraint firstItem="max-nI-XGT" firstAttribute="height" secondItem="hbE-eq-DwX" secondAttribute="height" id="HFL-gq-5uY"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.15607842799999999" green="0.41368311639999999" blue="0.61028933529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="hbE-eq-DwX" firstAttribute="leading" secondItem="LhK-MG-91s" secondAttribute="leading" constant="8" id="Im0-5x-Pn5"/>
+                                    <constraint firstAttribute="trailing" secondItem="hbE-eq-DwX" secondAttribute="trailing" constant="8" id="N0K-rV-RHt"/>
                                     <constraint firstAttribute="trailing" secondItem="IaJ-vd-PLD" secondAttribute="trailing" constant="8" id="Qci-Sf-weH"/>
                                     <constraint firstItem="IaJ-vd-PLD" firstAttribute="leading" secondItem="LhK-MG-91s" secondAttribute="leading" constant="8" id="cj5-r7-kgW"/>
-                                    <constraint firstItem="btb-aC-A5G" firstAttribute="top" secondItem="IaJ-vd-PLD" secondAttribute="bottom" constant="55.5" id="eJ3-Uh-i1E"/>
+                                    <constraint firstAttribute="bottom" secondItem="hbE-eq-DwX" secondAttribute="bottom" constant="8" id="jOG-6F-K5I"/>
                                     <constraint firstItem="IaJ-vd-PLD" firstAttribute="leading" secondItem="LhK-MG-91s" secondAttribute="leadingMargin" id="jqH-YP-562"/>
                                     <constraint firstAttribute="width" secondItem="LhK-MG-91s" secondAttribute="height" multiplier="1:1" id="nHQ-Kr-PdC"/>
                                     <constraint firstItem="IaJ-vd-PLD" firstAttribute="top" secondItem="LhK-MG-91s" secondAttribute="topMargin" id="oGB-aY-9iv"/>
