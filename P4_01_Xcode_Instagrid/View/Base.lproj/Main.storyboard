@@ -47,7 +47,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhK-MG-91s" userLabel="Container photo View">
-                                <rect key="frame" x="6" y="103" width="288" height="288"/>
+                                <rect key="frame" x="16" y="140" width="288" height="288"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-vd-PLD" userLabel="photo View 1 &amp; 2">
                                         <rect key="frame" x="8" y="8" width="272" height="129.5"/>
@@ -111,6 +111,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonLayout1" destination="Jus-mP-ded" id="KTG-dn-MV5"/>
+                        <outlet property="buttonLayout2" destination="Lat-WW-LVc" id="trT-oo-A4Y"/>
+                        <outlet property="buttonLayout3" destination="N3n-eT-fr6" id="3i4-c8-PdG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
