@@ -31,12 +31,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var squarePhotoViewBottomRightButton: UIButton!
     
     @IBAction func selectRectangleTopViewButton() {
+        selectGridCollection()
         selectButton(view: .firstView)
+        
     }
+    
     @IBAction func selectRectangleBottomViewButton() {
+        selectGridCollection()
         selectButton(view: .secondView)
     }
+    
     @IBAction func selectSquareViewButton() {
+        selectGridCollection()
         selectButton(view: .thirdView)
     }
     
@@ -44,7 +50,7 @@ class ViewController: UIViewController {
         case firstView, secondView, thirdView
     }
     
-    func selectButton(view : SelectButtonView) {
+    private func selectButton(view : SelectButtonView) {
         
         switch view {
         case .firstView:
@@ -62,6 +68,16 @@ class ViewController: UIViewController {
             squarePhotoViewTopRightButton.isHidden = false
             squarePhotoViewBottomLeftButton.isHidden = false
             squarePhotoViewBottomRightButton.isHidden = false
+        }
+    }
+    
+    private func selectGridCollection (){
+        for button in selectViewbutton {
+            if button.isSelected == true {
+                button.imageView?.isHidden = false
+            } else {
+                button.imageView?.isHidden = true
+            }
         }
         
     }
