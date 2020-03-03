@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        resetGridCollection()
+        basicViewGridCollection()
     }
 
    
@@ -43,11 +43,11 @@ class ViewController: UIViewController {
         selectButton(view: .thirdView)
     }
     
-    enum SelectButtonView {
+    enum GridLayoutView {
         case firstView, secondView, thirdView
     }
     
-    private func selectButton(view : SelectButtonView) {
+    private func selectButton(view : GridLayoutView) {
         
         switch view {
         case .firstView:
@@ -78,11 +78,12 @@ class ViewController: UIViewController {
         }
     }
     
-    private func resetGridCollection () {
-        for button in selectViewbutton {
-            button.isSelected = false
-            button.imageView?.isHidden = true
-        }
+    private func basicViewGridCollection () {
+        selectButton(view: .secondView)
+        selectViewbutton[0].imageView?.isHidden = true
+        selectViewbutton[1].imageView?.isHidden = false
+        selectViewbutton[2].imageView?.isHidden = true
     }
+    
 }
 
