@@ -7,10 +7,7 @@
 //
 /*
  
- 3) Associer une action aux boutons du bas qui permet de selectionner une grille.
- Cette action affichera l'image "selected" au click.
- Créer une fonction qui enleve l'image "selected"  aux autres bouttons non sélectionné.
-
+ 
  */
 
 import UIKit
@@ -20,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        resetGridCollection()
     }
 
    
@@ -33,7 +31,6 @@ class ViewController: UIViewController {
     @IBAction func selectRectangleTopViewButton() {
         selectGridCollection()
         selectButton(view: .firstView)
-        
     }
     
     @IBAction func selectRectangleBottomViewButton() {
@@ -71,7 +68,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func selectGridCollection (){
+    private func selectGridCollection () {
         for button in selectViewbutton {
             if button.isSelected == true {
                 button.imageView?.isHidden = false
@@ -79,7 +76,13 @@ class ViewController: UIViewController {
                 button.imageView?.isHidden = true
             }
         }
-        
+    }
+    
+    private func resetGridCollection () {
+        for button in selectViewbutton {
+            button.isSelected = false
+            button.imageView?.isHidden = true
+        }
     }
 }
 
