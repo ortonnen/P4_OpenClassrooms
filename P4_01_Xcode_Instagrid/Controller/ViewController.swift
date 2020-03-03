@@ -45,11 +45,20 @@ class ViewController: UIViewController {
         
         switch view {
         case .view1:
+            photo1.isHidden = false
             photo2.isHidden = true
+            photo3.isHidden = false
+            photo4.isHidden = false
         case .view2:
+            photo1.isHidden = false
+            photo2.isHidden = false
+            photo3.isHidden = false
             photo4.isHidden = true
         case .view3:
-           break
+          photo1.isHidden = false
+           photo2.isHidden = false
+           photo3.isHidden = false
+           photo4.isHidden = false
         }
         
     }

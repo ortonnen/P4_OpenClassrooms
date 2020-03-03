@@ -25,7 +25,7 @@
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="selectLayout1Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OSd-lz-hTr"/>
+                                            <action selector="selectLayout1Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="4lQ-ej-TXs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-WW-LVc" userLabel="Layout 2">
@@ -121,9 +121,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="buttonLayout1" destination="Jus-mP-ded" id="KTG-dn-MV5"/>
-                        <outlet property="buttonLayout2" destination="Lat-WW-LVc" id="trT-oo-A4Y"/>
-                        <outlet property="buttonLayout3" destination="N3n-eT-fr6" id="3i4-c8-PdG"/>
                         <outlet property="photo1" destination="M9Z-Ej-QSh" id="ue5-Mx-uYb"/>
                         <outlet property="photo2" destination="ri8-dO-1zd" id="xU4-yP-Get"/>
                         <outlet property="photo3" destination="max-nI-XGT" id="Q7F-l8-r5Y"/>
