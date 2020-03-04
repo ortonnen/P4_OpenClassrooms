@@ -6,6 +6,8 @@
 //  Copyright © 2020 Nathalie Ortonne. All rights reserved.
 //
 /*
+ modifier view Label swipe avec modification nom si landscape ou portrait.
+ de même modifier arrow
  
  */
 
@@ -88,15 +90,29 @@ class ViewController: UIViewController {
         selectViewbutton[2].imageView?.isHidden = true
     }
 
-   // ajouter && portrait ou paysage
-    private func transformSwipeView (gesture : UISwipeGestureRecognizer) {
-        if gesture.direction == .up {
-            //
+   
+    private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
+        if gesture.direction == .up && orientation.isPortrait == true {
+            //apparait barre tache
              
-        } else if gesture.direction == .left {
-            //
+        } else if gesture.direction == .left && orientation.isLandscape == true {
+            //apparait barre tache
         }
     }
-    
+   
+
+    private func changeSwipeLabelAndArrow () {
+        // func to change text of swipe Label
+        let orientation : UIDeviceOrientation
+        if orientation.isLandscape == true {
+            // swipeLabel.text = "Swipe left to share"
+            // arrowUp.ishidden = true
+            // arrowLeft.isHidden = false
+        } else {
+            // swipeLabel.text = "Swipe up to share"
+            //arrowUp.isHidden = false
+            //arrowLeft.isHidden = true
+        }
+    }
 }
 
