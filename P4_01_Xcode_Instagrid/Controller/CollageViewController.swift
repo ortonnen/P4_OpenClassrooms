@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         basicViewGridCollection()
+        changeSwipeLabelAndArrow()
     }
    
     @IBOutlet var selectViewbutton: [UIButton]!
@@ -108,7 +109,7 @@ class ViewController: UIViewController {
         // func to change text of swipe Label
         let orientation: UIDeviceOrientation = .unknown
         
-        if orientation.isPortrait == true {
+        if orientation.isLandscape == false {
             swipeLabel.text = "Swipe up to share"
             arrowUp.isHidden = false
             arrowLeft.isHidden = true
