@@ -26,7 +26,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var squarePhotoViewBottomLeftButton: UIButton!
     @IBOutlet weak var squarePhotoViewBottomRightButton: UIButton!
     
-    @IBAction func tapToChangePhotoButton(_ sender: Any) {
+    @IBAction func tapToChangePhotoButton(_ sender: UITapGestureRecognizer) {
+        // when tap search photo in library
     }
     
     
@@ -87,17 +88,15 @@ class ViewController: UIViewController {
         selectViewbutton[2].imageView?.isHidden = true
     }
 
-    // créer une fonction qui regroupe les deux avec un if up ou if left, si paysage ou portrait
-    private func transformSwipeUpView (gesture : UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: view)
-        CGAffineTransform(translationX: 0, y: translation.y)
+   // ajouter && portrait ou paysage
+    private func transformSwipeView (gesture : UISwipeGestureRecognizer) {
+        if gesture.direction == .up {
+            //
+             
+        } else if gesture.direction == .left {
+            //
+        }
     }
-    
-    private func transformSwipeLeftView (gesture : UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: view)
-        CGAffineTransform(translationX: translation.x, y: 0)
-    }
-    
     
 }
 
