@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,17 +20,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="P4_01_Xcode_Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhK-MG-91s" userLabel="Container photo View">
-                                <rect key="frame" x="298" y="57" width="300" height="300"/>
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-vd-PLD" userLabel="StackView Top Photo View">
-                                        <rect key="frame" x="15" y="15" width="270" height="127.5"/>
+                                        <rect key="frame" x="15" y="15.000000000000007" width="270" height="127.66666666666669"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9Z-Ej-QSh" userLabel="TopLeft Square PhotoView">
-                                                <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="127.66666666666667"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="127.5" id="YIw-AP-nai"/>
@@ -38,9 +38,12 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
+                                                <connections>
+                                                    <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N1c-HA-sA0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri8-dO-1zd" userLabel="Top Right Square PhotoView">
-                                                <rect key="frame" x="142.5" y="0.0" width="127.5" height="127.5"/>
+                                                <rect key="frame" x="142.66666666666666" y="0.0" width="127.33333333333334" height="127.66666666666667"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="127.5" id="14s-ZT-iUq"/>
@@ -49,15 +52,18 @@
                                                 <color key="tintColor" red="0.3615339696" green="0.57107019420000005" blue="0.7124193311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
+                                                <connections>
+                                                    <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wcb-2A-dn1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.74030500649999997" green="0.84132564070000004" blue="0.89270251990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hbE-eq-DwX" userLabel="StackView Bottom Photo View">
-                                        <rect key="frame" x="15" y="157.5" width="270" height="127.5"/>
+                                        <rect key="frame" x="15" y="157.66666666666669" width="270" height="127.33333333333331"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="max-nI-XGT" userLabel="BottomLeft Square PhotoView">
-                                                <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="127.33333333333333"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="127.5" id="KZZ-Kc-39o"/>
@@ -66,13 +72,19 @@
                                                 <color key="tintColor" red="0.36078431372549019" green="0.57107019420000005" blue="0.7124193311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
+                                                <connections>
+                                                    <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rlt-2p-jEA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KF4-xk-vdc" userLabel="BottomRight Square PhotoView">
-                                                <rect key="frame" x="142.5" y="0.0" width="127.5" height="127.5"/>
+                                                <rect key="frame" x="142.66666666666666" y="0.0" width="127.33333333333334" height="127.33333333333333"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.3615339696" green="0.57107019420000005" blue="0.7124193311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
+                                                <connections>
+                                                    <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLS-p3-ec0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,7 +108,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5d-YV-lM2">
-                                <rect key="frame" x="389" y="0.0" width="118.5" height="36"/>
+                                <rect key="frame" x="147.66666666666666" y="64" width="118.66666666666666" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Mgk-tj-TUS"/>
                                 </constraints>
@@ -104,8 +116,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="R2V-Sd-dL8">
-                                <rect key="frame" x="443.5" y="230" width="9" height="13"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="R2V-Sd-dL8">
+                                <rect key="frame" x="202.33333333333334" y="230" width="9.3333333333333428" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="9.4800000000000004" id="O5c-ic-IUr"/>
                                     <constraint firstAttribute="height" constant="13.029999999999999" id="gDP-mw-peh"/>
@@ -113,8 +125,19 @@
                                 <variation key="heightClass=compact-widthClass=compact" hidden="YES"/>
                                 <variation key="heightClass=compact-widthClass=regular" hidden="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-3j-1sY">
+                                <rect key="frame" x="63.000000000000014" y="259" width="160.33333333333337" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="qix-TW-SxP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact" hidden="YES"/>
+                                <variation key="heightClass=compact-widthClass=regular" hidden="YES"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="1fz-kd-1zB" userLabel="StackView changeViewButton">
-                                <rect key="frame" x="742" y="63" width="80" height="288"/>
+                                <rect key="frame" x="63" y="752" width="288" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jus-mP-ded" userLabel="Rectangle Top View">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -128,7 +151,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-WW-LVc" userLabel="Rectangle Bottom View">
-                                        <rect key="frame" x="0.0" y="104" width="80" height="80"/>
+                                        <rect key="frame" x="104" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="5k0-Xd-Qoi"/>
                                             <constraint firstAttribute="width" constant="80" id="jmz-of-2vt"/>
@@ -139,32 +162,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-eT-fr6" userLabel="Square View">
-                                        <rect key="frame" x="0.0" y="208" width="80" height="80"/>
+                                        <rect key="frame" x="208" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="p21-gY-udI"/>
                                             <constraint firstAttribute="height" constant="80" id="vy3-8S-bfK"/>
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 3"/>
                                         <connections>
-                                            <action selector="selectSquareViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uc2-Dy-cka"/>
+                                            <action selector="selectSquareViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="6my-DI-33B"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-3j-1sY">
-                                <rect key="frame" x="63.000000000000014" y="259" width="160.33333333333337" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="qix-TW-SxP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact-widthClass=compact" hidden="YES"/>
-                                <variation key="heightClass=compact-widthClass=regular" hidden="YES"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DAW-5c-SfC" userLabel="StackView swipe left and arrow left">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DAW-5c-SfC" userLabel="StackView swipe left and arrow left">
                                 <rect key="frame" x="44" y="185" width="171" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-T4-Hvl">
@@ -233,11 +245,11 @@
                     <connections>
                         <outlet property="squarePhotoViewBottomLeftButton" destination="max-nI-XGT" id="OIe-Zi-1DG"/>
                         <outlet property="squarePhotoViewBottomRightButton" destination="KF4-xk-vdc" id="q4V-JP-4vc"/>
-                        <outlet property="squarePhotoViewTopLeftButton" destination="M9Z-Ej-QSh" id="ZVp-x3-u8G"/>
+                        <outlet property="squarePhotoViewTopLeftButton" destination="M9Z-Ej-QSh" id="hI8-Il-qvt"/>
                         <outlet property="squarePhotoViewTopRightButton" destination="ri8-dO-1zd" id="wjc-V7-uql"/>
                         <outletCollection property="selectViewbutton" destination="Jus-mP-ded" collectionClass="NSMutableArray" id="SOp-oG-5lw"/>
                         <outletCollection property="selectViewbutton" destination="Lat-WW-LVc" collectionClass="NSMutableArray" id="fzn-Zr-bdE"/>
-                        <outletCollection property="selectViewbutton" destination="N3n-eT-fr6" collectionClass="NSMutableArray" id="Ndp-Kb-xd4"/>
+                        <outletCollection property="selectViewbutton" destination="N3n-eT-fr6" collectionClass="NSMutableArray" id="Ios-J0-N00"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -246,12 +258,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Left" width="3.5" height="4.5"/>
-        <image name="Arrow Up" width="4.5" height="3.5"/>
-        <image name="Layout 1" width="27" height="27"/>
-        <image name="Layout 2" width="27" height="27"/>
-        <image name="Layout 3" width="27" height="27"/>
-        <image name="Plus" width="13.5" height="13.5"/>
-        <image name="Selected" width="27" height="27"/>
+        <image name="Arrow Left" width="3.3333332538604736" height="4.6666665077209473"/>
+        <image name="Arrow Up" width="4.6666665077209473" height="3.3333332538604736"/>
+        <image name="Layout 1" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Layout 3" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Plus" width="13.333333015441895" height="13.333333015441895"/>
+        <image name="Selected" width="26.666666030883789" height="26.666666030883789"/>
     </resources>
 </document>

@@ -7,19 +7,17 @@
 //
 /*
  
- 
  */
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         basicViewGridCollection()
     }
-
    
     @IBOutlet var selectViewbutton: [UIButton]!
     
@@ -27,6 +25,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var squarePhotoViewTopRightButton: UIButton!
     @IBOutlet weak var squarePhotoViewBottomLeftButton: UIButton!
     @IBOutlet weak var squarePhotoViewBottomRightButton: UIButton!
+    
+    @IBAction func tapToChangePhotoButton(_ sender: Any) {
+    }
+    
     
     @IBAction func selectRectangleTopViewButton() {
         selectGridCollection()
@@ -84,6 +86,18 @@ class ViewController: UIViewController {
         selectViewbutton[1].imageView?.isHidden = false
         selectViewbutton[2].imageView?.isHidden = true
     }
+
+    // créer une fonction qui regroupe les deux avec un if up ou if left, si paysage ou portrait
+    private func transformSwipeUpView (gesture : UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        CGAffineTransform(translationX: 0, y: translation.y)
+    }
+    
+    private func transformSwipeLeftView (gesture : UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        CGAffineTransform(translationX: translation.x, y: 0)
+    }
+    
     
 }
 
