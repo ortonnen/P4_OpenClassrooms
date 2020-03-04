@@ -116,8 +116,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="R2V-Sd-dL8">
-                                <rect key="frame" x="202.33333333333334" y="230" width="9.3333333333333428" height="13"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-T4-Hvl">
+                                <rect key="frame" x="202" y="441" width="9" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="9" id="U7P-uh-H07"/>
+                                    <constraint firstAttribute="height" constant="13" id="rHg-lg-DK2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="R2V-Sd-dL8">
+                                <rect key="frame" x="-118" y="6" width="9" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="9.4800000000000004" id="O5c-ic-IUr"/>
                                     <constraint firstAttribute="height" constant="13.029999999999999" id="gDP-mw-peh"/>
@@ -177,17 +184,10 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DAW-5c-SfC" userLabel="StackView swipe left and arrow left">
-                                <rect key="frame" x="44" y="185" width="171" height="44"/>
+                                <rect key="frame" x="44" y="185" width="171" height="29"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-T4-Hvl">
-                                        <rect key="frame" x="81" y="0.0" width="9" height="13"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="9" id="U7P-uh-H07"/>
-                                            <constraint firstAttribute="height" constant="13" id="rHg-lg-DK2"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d57-Uj-MQ4">
-                                        <rect key="frame" x="0.0" y="15" width="171" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="29"/>
                                         <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -243,10 +243,13 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="arrowLeft" destination="7u4-T4-Hvl" id="iDC-oL-KuI"/>
+                        <outlet property="arrowUp" destination="R2V-Sd-dL8" id="F3n-6L-TXq"/>
                         <outlet property="squarePhotoViewBottomLeftButton" destination="max-nI-XGT" id="OIe-Zi-1DG"/>
                         <outlet property="squarePhotoViewBottomRightButton" destination="KF4-xk-vdc" id="q4V-JP-4vc"/>
                         <outlet property="squarePhotoViewTopLeftButton" destination="M9Z-Ej-QSh" id="hI8-Il-qvt"/>
                         <outlet property="squarePhotoViewTopRightButton" destination="ri8-dO-1zd" id="wjc-V7-uql"/>
+                        <outlet property="swipeLabel" destination="Zxt-3j-1sY" id="Hae-4p-oy0"/>
                         <outletCollection property="selectViewbutton" destination="Jus-mP-ded" collectionClass="NSMutableArray" id="SOp-oG-5lw"/>
                         <outletCollection property="selectViewbutton" destination="Lat-WW-LVc" collectionClass="NSMutableArray" id="fzn-Zr-bdE"/>
                         <outletCollection property="selectViewbutton" destination="N3n-eT-fr6" collectionClass="NSMutableArray" id="Ios-J0-N00"/>
@@ -254,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.59821428571428" y="110.14492753623189"/>
+            <point key="canvasLocation" x="133.33333333333334" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>

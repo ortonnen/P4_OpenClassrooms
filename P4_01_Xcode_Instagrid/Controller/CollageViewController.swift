@@ -100,18 +100,22 @@ class ViewController: UIViewController {
         }
     }
    
-
+    @IBOutlet weak var arrowLeft: UIImageView!
+    @IBOutlet weak var arrowUp: UIImageView!
+    @IBOutlet weak var swipeLabel: UILabel!
+    
     private func changeSwipeLabelAndArrow () {
         // func to change text of swipe Label
-        let orientation : UIDeviceOrientation
-        if orientation.isLandscape == true {
-            // swipeLabel.text = "Swipe left to share"
-            // arrowUp.ishidden = true
-            // arrowLeft.isHidden = false
+        let orientation: UIDeviceOrientation = .unknown
+        
+        if orientation.isPortrait == true {
+            swipeLabel.text = "Swipe up to share"
+            arrowUp.isHidden = false
+            arrowLeft.isHidden = true
         } else {
-            // swipeLabel.text = "Swipe up to share"
-            //arrowUp.isHidden = false
-            //arrowLeft.isHidden = true
+            swipeLabel.text = "Swipe left to share"
+            arrowUp.isHidden = true
+            arrowLeft.isHidden = false
         }
     }
 }
