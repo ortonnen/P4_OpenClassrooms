@@ -25,8 +25,11 @@ class ViewController: UIViewController {
     }
     
     let image = UIImagePickerController()
+    let screenHeight = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.width
     
    
+    @IBOutlet var screenView: UIView!
     @IBOutlet var selectViewbutton: [UIButton]!
     
     @IBOutlet weak var squarePhotoViewTopLeftButton: UIButton!
@@ -110,16 +113,18 @@ class ViewController: UIViewController {
    
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
         //Le swipe lance une animation qui fait glisser la grille principale vers le haut (ou vers la gauche) jusqu’à disparaître de l’écran.
+        let swipeUp = CGAffineTransform(translationX: 0, y: screenHeight)
+        let swipeLeft = CGAffineTransform(translationX: screenWidth, y: 0)
 
         if gesture.direction == .up && orientation.isPortrait == true {
-            UIView.animate(withDuration: <#T##TimeInterval#>, animations: {
-                <#code#>
-            }, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.screenView.transform = swipeUp
+            }, completion: nil)
             
         } else if gesture.direction == .left && orientation.isLandscape == true {
-            UIView.animate(withDuration: <#T##TimeInterval#>, animations: {
-                <#code#>
-            }, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.screenView.transform = swipeLeft
+            }, completion: nil)
         }
         //Une fois l’animation terminée, la vue ​UIActivityController s’affiche et permet à l’utilisateur de choisir son application préférée pour partager sa création.
     }
