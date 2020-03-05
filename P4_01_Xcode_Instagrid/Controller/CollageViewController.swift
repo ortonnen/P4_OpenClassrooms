@@ -110,7 +110,10 @@ class ViewController: UIViewController {
         selectViewbutton[2].imageView?.isHidden = true
     }
 
-   
+    @objc func swipeScreen (_ sender : UISwipeGestureRecognizer) {
+        transformSwipeView(gesture: sender, orientation: UIDevice.current.orientation)
+    }
+    
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
         //Le swipe lance une animation qui fait glisser la grille principale vers le haut (ou vers la gauche) jusqu’à disparaître de l’écran.
         let swipeUp = CGAffineTransform(translationX: 0, y: screenHeight)
