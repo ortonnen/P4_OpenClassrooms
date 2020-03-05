@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="landscape" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,11 +20,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="P4_01_Xcode_Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhK-MG-91s" userLabel="Container photo View">
-                                <rect key="frame" x="134" y="10" width="300" height="300"/>
+                                <rect key="frame" x="10" y="134" width="300" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-vd-PLD" userLabel="StackView Top Photo View">
                                         <rect key="frame" x="15" y="15" width="270" height="127.5"/>
@@ -108,7 +108,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5d-YV-lM2">
-                                <rect key="frame" x="225" y="0.0" width="118.5" height="36"/>
+                                <rect key="frame" x="101" y="20" width="118.5" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Mgk-tj-TUS"/>
                                 </constraints>
@@ -117,7 +117,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="R2V-Sd-dL8">
-                                <rect key="frame" x="75" y="153.5" width="9.5" height="13"/>
+                                <rect key="frame" x="155.5" y="66" width="9" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="9.4800000000000004" id="O5c-ic-IUr"/>
                                     <constraint firstAttribute="height" constant="13.029999999999999" id="gDP-mw-peh"/>
@@ -128,11 +128,11 @@
                                         <exclude reference="vwg-FQ-bHm"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=compact" hidden="NO"/>
-                                <variation key="heightClass=compact-widthClass=regular" hidden="NO"/>
+                                <variation key="heightClass=compact-widthClass=compact" hidden="YES"/>
+                                <variation key="heightClass=compact-widthClass=regular" hidden="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="1fz-kd-1zB" userLabel="StackView changeViewButton">
-                                <rect key="frame" x="458" y="16" width="80" height="288"/>
+                                <rect key="frame" x="16" y="458" width="288" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jus-mP-ded" userLabel="Rectangle Top View">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -146,7 +146,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-WW-LVc" userLabel="Rectangle Bottom View">
-                                        <rect key="frame" x="0.0" y="104" width="80" height="80"/>
+                                        <rect key="frame" x="104" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="5k0-Xd-Qoi"/>
                                             <constraint firstAttribute="width" constant="80" id="jmz-of-2vt"/>
@@ -157,7 +157,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-eT-fr6" userLabel="Square View">
-                                        <rect key="frame" x="0.0" y="208" width="80" height="80"/>
+                                        <rect key="frame" x="208" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="p21-gY-udI"/>
                                             <constraint firstAttribute="height" constant="80" id="vy3-8S-bfK"/>
@@ -172,13 +172,14 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-T4-Hvl">
-                                <rect key="frame" x="75" y="153.5" width="9.5" height="13"/>
+                                <rect key="frame" x="155.5" y="66" width="9" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13.029999999999999" id="uho-wA-vgf"/>
                                 </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" hidden="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-3j-1sY">
-                                <rect key="frame" x="-0.5" y="167.5" width="160.5" height="31"/>
+                                <rect key="frame" x="16" y="95" width="160.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="qix-TW-SxP"/>
                                 </constraints>

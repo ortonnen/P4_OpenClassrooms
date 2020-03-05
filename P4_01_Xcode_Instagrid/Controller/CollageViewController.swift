@@ -19,6 +19,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         basicViewGridCollection()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         changeSwipeLabelAndArrow()
     }
    
@@ -107,9 +111,8 @@ class ViewController: UIViewController {
     
     private func changeSwipeLabelAndArrow () {
         // func to change text of swipe Label
-        let orientation: UIDeviceOrientation = .unknown
         
-        if orientation.isLandscape == false {
+        if UIDevice.current.orientation.isPortrait {
             swipeLabel.text = "Swipe up to share"
             arrowUp.isHidden = false
             arrowLeft.isHidden = true
