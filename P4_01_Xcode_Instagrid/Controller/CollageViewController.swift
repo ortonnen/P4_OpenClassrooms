@@ -6,9 +6,7 @@
 //  Copyright © 2020 Nathalie Ortonne. All rights reserved.
 //
 /*
- modifier view Label swipe avec modification nom si landscape ou portrait.
- de même modifier arrow
- 
+
  */
 
 import UIKit
@@ -25,6 +23,9 @@ class ViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         changeSwipeLabelAndArrow()
     }
+    
+    let image = UIImagePickerController()
+    
    
     @IBOutlet var selectViewbutton: [UIButton]!
     
@@ -34,7 +35,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var squarePhotoViewBottomRightButton: UIButton!
     
     @IBAction func tapToChangePhotoButton(_ sender: UITapGestureRecognizer) {
-        // when tap search photo in library
+        choosePhotoInLibrary ()
+        changePhoto()
+    }
+    
+    private func choosePhotoInLibrary () {
+      //UIImagePickers
+    }
+    
+    private func changePhoto () {
+        //squarePhotoViewButton.imageView.isHidden = true
+        //squarePhotoViewButton.background = image
+        // if / else
     }
     
     
@@ -97,12 +109,24 @@ class ViewController: UIViewController {
 
    
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
+        //Le swipe lance une animation qui fait glisser la grille principale vers le haut (ou vers la gauche) jusqu’à disparaître de l’écran.
+
         if gesture.direction == .up && orientation.isPortrait == true {
-            //apparait barre tache
-             
+            UIView.animate(withDuration: <#T##TimeInterval#>, animations: {
+                <#code#>
+            }, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+            
         } else if gesture.direction == .left && orientation.isLandscape == true {
-            //apparait barre tache
+            UIView.animate(withDuration: <#T##TimeInterval#>, animations: {
+                <#code#>
+            }, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
         }
+        //Une fois l’animation terminée, la vue ​UIActivityController s’affiche et permet à l’utilisateur de choisir son application préférée pour partager sa création.
+    }
+    
+
+    private func sharingFinished () {
+    //Une fois le partage effectué, annulé ou échoué, la grille principale revient automatiquement à sa place d’origine par l’animation inverse.
     }
    
     @IBOutlet weak var arrowLeft: UIImageView!
@@ -110,7 +134,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeLabel: UILabel!
     
     private func changeSwipeLabelAndArrow () {
-        // func to change text of swipe Label
+        // change text of swipe Label and arrow orientation
         
         if UIDevice.current.orientation.isPortrait {
             swipeLabel.text = "Swipe up to share"
