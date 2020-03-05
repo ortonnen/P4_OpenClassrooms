@@ -129,9 +129,14 @@ class ViewController: UIViewController {
                 self.screenView.transform = swipeLeft
             }, completion: nil)
         }
-        //Une fois l’animation terminée, la vue ​UIActivityController s’affiche et permet à l’utilisateur de choisir son application préférée pour partager sa création.
+        shareImage()
     }
     
+    private func shareImage () {
+        //Une fois l’animation terminée, la vue ​UIActivityController s’affiche et permet à l’utilisateur de choisir son application préférée pour partager sa création.
+        let contentToShare = [image]
+        UIActivityViewController(activityItems: [contentToShare], applicationActivities:[])
+    }
 
     private func sharingFinished () {
     //Une fois le partage effectué, annulé ou échoué, la grille principale revient automatiquement à sa place d’origine par l’animation inverse.
