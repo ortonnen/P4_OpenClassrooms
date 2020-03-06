@@ -143,10 +143,10 @@
                                         <state key="normal" image="Selected" backgroundImage="Layout 1"/>
                                         <connections>
                                             <action selector="selectRectangleTopViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qvx-un-KAJ"/>
-                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPY-O0-GpR"/>
+                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fwl-Zx-FVL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-WW-LVc" userLabel="Rectangle Bottom View">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-WW-LVc" userLabel="Rectangle Bottom View">
                                         <rect key="frame" x="104" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="5k0-Xd-Qoi"/>
@@ -155,10 +155,10 @@
                                         <state key="normal" image="Selected" backgroundImage="Layout 2"/>
                                         <connections>
                                             <action selector="selectRectangleBottomViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="MPO-eV-G5J"/>
-                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BNC-iB-G03"/>
+                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nWe-mn-BYe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-eT-fr6" userLabel="Square View">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-eT-fr6" userLabel="Square View">
                                         <rect key="frame" x="208" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="p21-gY-udI"/>
@@ -167,7 +167,7 @@
                                         <state key="normal" image="Selected" backgroundImage="Layout 3"/>
                                         <connections>
                                             <action selector="selectSquareViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="6my-DI-33B"/>
-                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QM7-h2-0pQ"/>
+                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QiV-jQ-gx7"/>
                                         </connections>
                                     </button>
                                 </subviews>

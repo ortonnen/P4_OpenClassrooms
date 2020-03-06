@@ -76,9 +76,14 @@ class ViewController: UIViewController {
     }
     
 
+    @IBAction func selectViewButton(_ sender: Any) {
+        selectGridCollection()
+        selectButton(view: (ViewController.GridLayoutView(rawValue: (sender as AnyObject).tag)!))
+        
+    }
     
-    enum GridLayoutView {
-        case firstView, secondView, thirdView
+    enum GridLayoutView: Int {
+        case firstView = 0, secondView = 1, thirdView = 2
     }
     
     private func selectButton(view : GridLayoutView) {
