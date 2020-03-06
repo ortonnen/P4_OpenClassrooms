@@ -17,6 +17,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         basicViewGridCollection()
+        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
+        swipeGestureUp.direction = .up
+        
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
+        swipeGestureLeft.direction = .left
+        
+        screenView.addGestureRecognizer(swipeGestureUp)
+        screenView.addGestureRecognizer(swipeGestureLeft)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -26,9 +34,8 @@ class ViewController: UIViewController {
     
     let image = UIImagePickerController()
     let screenHeight = UIScreen.main.bounds.height
-    let screenWidth = UIScreen.main.bounds.width
-    
-   
+
+    @IBOutlet weak var containerPhotoView: UIView!
     @IBOutlet var screenView: UIView!
     @IBOutlet var selectViewbutton: [UIButton]!
     
@@ -67,6 +74,8 @@ class ViewController: UIViewController {
         selectGridCollection()
         selectButton(view: .thirdView)
     }
+    
+
     
     enum GridLayoutView {
         case firstView, secondView, thirdView
@@ -116,17 +125,17 @@ class ViewController: UIViewController {
     
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
         //Le swipe lance une animation qui fait glisser la grille principale vers le haut (ou vers la gauche) jusqu’à disparaître de l’écran.
-        let swipeUp = CGAffineTransform(translationX: 0, y: screenHeight)
-        let swipeLeft = CGAffineTransform(translationX: screenWidth, y: 0)
+        let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
+        let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
 
         if gesture.direction == .up && orientation.isPortrait == true {
             UIView.animate(withDuration: 0.5, animations: {
-                self.screenView.transform = swipeUp
+                self.containerPhotoView.transform = swipeUp
             }, completion: nil)
             
         } else if gesture.direction == .left && orientation.isLandscape == true {
             UIView.animate(withDuration: 0.5, animations: {
-                self.screenView.transform = swipeLeft
+                self.containerPhotoView.transform = swipeLeft
             }, completion: nil)
         }
         shareImage()

@@ -108,7 +108,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5d-YV-lM2">
-                                <rect key="frame" x="101.5" y="20" width="117" height="36"/>
+                                <rect key="frame" x="101" y="20" width="118.5" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Mgk-tj-TUS"/>
                                 </constraints>
@@ -143,6 +143,7 @@
                                         <state key="normal" image="Selected" backgroundImage="Layout 1"/>
                                         <connections>
                                             <action selector="selectRectangleTopViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qvx-un-KAJ"/>
+                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPY-O0-GpR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-WW-LVc" userLabel="Rectangle Bottom View">
@@ -154,6 +155,7 @@
                                         <state key="normal" image="Selected" backgroundImage="Layout 2"/>
                                         <connections>
                                             <action selector="selectRectangleBottomViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="MPO-eV-G5J"/>
+                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BNC-iB-G03"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-eT-fr6" userLabel="Square View">
@@ -165,6 +167,7 @@
                                         <state key="normal" image="Selected" backgroundImage="Layout 3"/>
                                         <connections>
                                             <action selector="selectSquareViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="6my-DI-33B"/>
+                                            <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QM7-h2-0pQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -179,7 +182,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" hidden="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-3j-1sY">
-                                <rect key="frame" x="16" y="95" width="210" height="31"/>
+                                <rect key="frame" x="16" y="95" width="160.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="qix-TW-SxP"/>
                                 </constraints>
@@ -233,8 +236,8 @@
                             <mask key="constraints">
                                 <exclude reference="kne-1j-qLq"/>
                                 <include reference="n91-ah-Lsl"/>
-                                <exclude reference="SQt-iF-u8P"/>
                                 <exclude reference="rOv-fs-oYJ"/>
+                                <exclude reference="SQt-iF-u8P"/>
                                 <include reference="CEP-ii-83y"/>
                                 <include reference="gTf-l7-XUu"/>
                                 <exclude reference="2es-KQ-0X5"/>
@@ -252,6 +255,7 @@
                     <connections>
                         <outlet property="arrowLeft" destination="7u4-T4-Hvl" id="iDC-oL-KuI"/>
                         <outlet property="arrowUp" destination="R2V-Sd-dL8" id="F3n-6L-TXq"/>
+                        <outlet property="containerPhotoView" destination="LhK-MG-91s" id="Rqp-jp-gl0"/>
                         <outlet property="screenView" destination="8bC-Xf-vdC" id="fJm-V7-aX2"/>
                         <outlet property="squarePhotoViewBottomLeftButton" destination="max-nI-XGT" id="OIe-Zi-1DG"/>
                         <outlet property="squarePhotoViewBottomRightButton" destination="KF4-xk-vdc" id="q4V-JP-4vc"/>
