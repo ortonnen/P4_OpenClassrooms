@@ -262,6 +262,10 @@
                         <outletCollection property="selectViewbutton" destination="Jus-mP-ded" collectionClass="NSMutableArray" id="SOp-oG-5lw"/>
                         <outletCollection property="selectViewbutton" destination="Lat-WW-LVc" collectionClass="NSMutableArray" id="fzn-Zr-bdE"/>
                         <outletCollection property="selectViewbutton" destination="N3n-eT-fr6" collectionClass="NSMutableArray" id="Ios-J0-N00"/>
+                        <outletCollection property="changePhotoViewButton" destination="max-nI-XGT" collectionClass="NSMutableArray" id="uFc-ls-FOA"/>
+                        <outletCollection property="changePhotoViewButton" destination="KF4-xk-vdc" collectionClass="NSMutableArray" id="lF0-Ii-xgY"/>
+                        <outletCollection property="changePhotoViewButton" destination="M9Z-Ej-QSh" collectionClass="NSMutableArray" id="d8g-Zt-ZYN"/>
+                        <outletCollection property="changePhotoViewButton" destination="ri8-dO-1zd" collectionClass="NSMutableArray" id="ydb-uS-fWY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

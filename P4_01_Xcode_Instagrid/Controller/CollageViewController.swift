@@ -11,7 +11,7 @@
 
 import UIKit
 
-class CollageViewController: UIViewController {
+class CollageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,9 @@ class CollageViewController: UIViewController {
         
         screenView.addGestureRecognizer(swipeGestureUp)
         screenView.addGestureRecognizer(swipeGestureLeft)
+        
+        image.delegate = self
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -32,6 +35,7 @@ class CollageViewController: UIViewController {
         changeSwipeLabelAndArrow()
     }
     
+    let currentButton = UIButton()
     let image = UIImagePickerController()
     let screenHeight = UIScreen.main.bounds.height
 
@@ -44,19 +48,31 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var squarePhotoViewBottomLeftButton: UIButton!
     @IBOutlet weak var squarePhotoViewBottomRightButton: UIButton!
     
+    @IBOutlet var changePhotoViewButton: [UIButton]!
+    
+    
     @IBAction func tapToChangePhotoButton(_ sender: UITapGestureRecognizer) {
+        
         choosePhotoInLibrary ()
-        changePhoto()
     }
     
     private func choosePhotoInLibrary () {
-      //UIImagePickers
+        
+        image.allowsEditing = true
+        image.sourceType = .photoLibrary
+        image.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        
+        present(image, animated: true, completion: nil)
+        
     }
     
-    private func changePhoto () {
-        //squarePhotoViewButton.imageView.isHidden = true
-        //squarePhotoViewButton.background = image
-        // if / else
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let imagePicked = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            currentButton.imageView?.contentMode = .scaleAspectFill
+            currentButton.setImage(imagePicked, for: .normal)
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -113,7 +129,7 @@ class CollageViewController: UIViewController {
     }
     
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
-        //Le swipe lance une animation qui fait glisser la grille principale vers le haut (ou vers la gauche) jusqu’à disparaître de l’écran.
+        
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
 
@@ -131,7 +147,7 @@ class CollageViewController: UIViewController {
     }
     
     private func shareImage () {
-        //Une fois l’animation terminée, la vue ​UIActivityController s’affiche et permet à l’utilisateur de choisir son application préférée pour partager sa création.
+       
         let contentToShare = [image]
         let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
         self.present(activityController, animated: true, completion: nil)
@@ -147,9 +163,8 @@ class CollageViewController: UIViewController {
         }
     }
         
-
     private func sharingFinished () {
-    //Une fois le partage effectué, annulé ou échoué, la grille principale revient automatiquement à sa place d’origine par l’animation inverse.
+    
         UIView.animate(withDuration: 0.5) {
             self.containerPhotoView.transform = .identity
         }
