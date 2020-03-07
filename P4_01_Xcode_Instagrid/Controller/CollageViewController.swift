@@ -11,7 +11,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CollageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,25 +60,9 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func selectRectangleTopViewButton() {
-        selectGridCollection()
-        selectButton(view: .firstView)
-    }
-    
-    @IBAction func selectRectangleBottomViewButton() {
-        selectGridCollection()
-        selectButton(view: .secondView)
-    }
-    
-    @IBAction func selectSquareViewButton() {
-        selectGridCollection()
-        selectButton(view: .thirdView)
-    }
-    
-
     @IBAction func selectViewButton(_ sender: Any) {
         selectGridCollection()
-        selectButton(view: (ViewController.GridLayoutView(rawValue: (sender as AnyObject).tag)!))
+        selectButton(view: (CollageViewController.GridLayoutView(rawValue: (sender as AnyObject).tag)!))
         
     }
     
@@ -149,11 +133,27 @@ class ViewController: UIViewController {
     private func shareImage () {
         //Une fois l’animation terminée, la vue ​UIActivityController s’affiche et permet à l’utilisateur de choisir son application préférée pour partager sa création.
         let contentToShare = [image]
-        UIActivityViewController(activityItems: [contentToShare], applicationActivities:[])
+        let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
+        self.present(activityController, animated: true, completion: nil)
+        activityController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed:
+        Bool, arrayReturnedItems: [Any]?, error: Error?) in
+            if completed {
+                self.sharingFinished()
+                return
+            } else {
+                print("cancel")
+                self.sharingFinished()
+            }
+        }
     }
+        
 
     private func sharingFinished () {
     //Une fois le partage effectué, annulé ou échoué, la grille principale revient automatiquement à sa place d’origine par l’animation inverse.
+        UIView.animate(withDuration: 0.5) {
+            self.containerPhotoView.transform = .identity
+        }
+        basicViewGridCollection()
     }
    
     @IBOutlet weak var arrowLeft: UIImageView!

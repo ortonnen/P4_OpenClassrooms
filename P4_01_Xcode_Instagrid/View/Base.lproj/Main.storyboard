@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Collage View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="P4_01_Xcode_Instagrid" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CollageViewController" customModule="P4_01_Xcode_Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -142,7 +142,6 @@
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="selectRectangleTopViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qvx-un-KAJ"/>
                                             <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fwl-Zx-FVL"/>
                                         </connections>
                                     </button>
@@ -154,7 +153,6 @@
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 2"/>
                                         <connections>
-                                            <action selector="selectRectangleBottomViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="MPO-eV-G5J"/>
                                             <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nWe-mn-BYe"/>
                                         </connections>
                                     </button>
@@ -166,7 +164,6 @@
                                         </constraints>
                                         <state key="normal" image="Selected" backgroundImage="Layout 3"/>
                                         <connections>
-                                            <action selector="selectSquareViewButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="6my-DI-33B"/>
                                             <action selector="selectViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QiV-jQ-gx7"/>
                                         </connections>
                                     </button>
