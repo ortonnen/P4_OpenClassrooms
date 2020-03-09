@@ -29,20 +29,19 @@
                                     <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-vd-PLD" userLabel="StackView Top Photo View">
                                         <rect key="frame" x="15" y="15" width="270" height="127.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9Z-Ej-QSh" userLabel="TopLeft Square PhotoView">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9Z-Ej-QSh" userLabel="TopLeft Square PhotoView">
                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="127.5" id="YIw-AP-nai"/>
                                                     <constraint firstAttribute="width" constant="127.5" id="xnd-4r-z1Q"/>
                                                 </constraints>
-                                                <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
                                                 <connections>
                                                     <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N1c-HA-sA0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri8-dO-1zd" userLabel="Top Right Square PhotoView">
+                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri8-dO-1zd" userLabel="Top Right Square PhotoView">
                                                 <rect key="frame" x="142.5" y="0.0" width="127.5" height="127.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -50,7 +49,6 @@
                                                     <constraint firstAttribute="height" constant="127.5" id="Ece-qv-NzL"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.3615339696" green="0.57107019420000005" blue="0.7124193311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
                                                 <connections>
                                                     <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wcb-2A-dn1"/>
@@ -62,25 +60,24 @@
                                     <stackView opaque="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hbE-eq-DwX" userLabel="StackView Bottom Photo View">
                                         <rect key="frame" x="15" y="157.5" width="270" height="127.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="max-nI-XGT" userLabel="BottomLeft Square PhotoView">
+                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="max-nI-XGT" userLabel="BottomLeft Square PhotoView">
                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="0.90000000000000002" height="1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="127.5" id="KZZ-Kc-39o"/>
                                                     <constraint firstAttribute="height" constant="127.5" id="XQ9-wQ-eh3"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.36078431372549019" green="0.57107019420000005" blue="0.7124193311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
                                                 <connections>
                                                     <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rlt-2p-jEA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KF4-xk-vdc" userLabel="BottomRight Square PhotoView">
+                                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KF4-xk-vdc" userLabel="BottomRight Square PhotoView">
                                                 <rect key="frame" x="142.5" y="0.0" width="127.5" height="127.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.3615339696" green="0.57107019420000005" blue="0.7124193311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <inset key="imageEdgeInsets" minX="40" minY="40" maxX="40" maxY="40"/>
                                                 <state key="normal" image="Plus"/>
                                                 <connections>
                                                     <action selector="tapToChangePhotoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLS-p3-ec0"/>
@@ -88,10 +85,6 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="KF4-xk-vdc" firstAttribute="firstBaseline" secondItem="max-nI-XGT" secondAttribute="firstBaseline" id="2WG-TE-oXF"/>
-                                            <constraint firstItem="max-nI-XGT" firstAttribute="baseline" secondItem="KF4-xk-vdc" secondAttribute="baseline" id="Sbx-Ke-DFt"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.15607842799999999" green="0.41368311639999999" blue="0.61028933529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

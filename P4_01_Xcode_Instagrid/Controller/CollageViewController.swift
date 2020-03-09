@@ -33,6 +33,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         changeSwipeLabelAndArrow()
+        basicViewGridCollection()
     }
     
     var currentButton = UIButton()
@@ -52,11 +53,13 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func tapToChangePhotoButton(_ sender: UIButton) {
+     
         currentButton = sender
         choosePhotoInLibrary ()
     }
     
     private func choosePhotoInLibrary () {
+        
         
         image.allowsEditing = true
         image.sourceType = .photoLibrary
@@ -122,7 +125,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         selectViewbutton[0].imageView?.isHidden = true
         selectViewbutton[1].imageView?.isHidden = false
         selectViewbutton[2].imageView?.isHidden = true
+        
     }
+    
 
     @objc func swipeScreen (_ sender : UISwipeGestureRecognizer) {
         transformSwipeView(gesture: sender, orientation: UIDevice.current.orientation)
@@ -148,10 +153,11 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     private func shareImage () {
        
-        let contentToShare = [image]
+        if let contentToShare = squarePhotoViewTopLeftButton.currentImage {
         let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
-        self.present(activityController, animated: true, completion: nil)
-        activityController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed:
+        
+        present(activityController, animated: true, completion: nil)
+        activityController.completionWithItemsHandler = { (activityType, completed:
         Bool, arrayReturnedItems: [Any]?, error: Error?) in
             if completed {
                 self.sharingFinished()
@@ -160,6 +166,8 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("cancel")
                 self.sharingFinished()
             }
+            
+         }
         }
     }
         
