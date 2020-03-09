@@ -35,7 +35,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         changeSwipeLabelAndArrow()
     }
     
-    let currentButton = UIButton()
+    var currentButton = UIButton()
     let image = UIImagePickerController()
     let screenHeight = UIScreen.main.bounds.height
 
@@ -51,8 +51,8 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var changePhotoViewButton: [UIButton]!
     
     
-    @IBAction func tapToChangePhotoButton(_ sender: UITapGestureRecognizer) {
-        
+    @IBAction func tapToChangePhotoButton(_ sender: UIButton) {
+        currentButton = sender
         choosePhotoInLibrary ()
     }
     
@@ -76,9 +76,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
-    @IBAction func selectViewButton(_ sender: Any) {
+    @IBAction func selectViewButton(_ sender: UIButton) {
         selectGridCollection()
-        selectButton(view: (CollageViewController.GridLayoutView(rawValue: (sender as AnyObject).tag)!))
+        selectButton(view: (CollageViewController.GridLayoutView(rawValue: sender.tag)!))
         
     }
     
