@@ -153,9 +153,8 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     private func shareImage () {
        
-        for button in changePhotoViewButton {
         
-            if let contentToShare = button.currentImage {
+            let contentToShare = imageToShare(view: containerPhotoView)
                 
                 let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
                 
@@ -171,8 +170,16 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.sharingFinished()
                     }
                 }
-            }
+    }
+    
+    private func imageToShare (view : UIView) -> UIImage {
+        
+        let renderer = UIGraphicsImageRenderer(bounds: containerPhotoView.bounds)
+        
+        let image = renderer.image { context in
+            containerPhotoView.drawHierarchy(in: containerPhotoView.bounds, afterScreenUpdates: true)
         }
+        return image
     }
         
     private func sharingFinished () {
