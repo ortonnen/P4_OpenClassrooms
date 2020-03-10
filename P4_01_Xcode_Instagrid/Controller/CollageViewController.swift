@@ -153,21 +153,24 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     private func shareImage () {
        
-        if let contentToShare = squarePhotoViewTopLeftButton.currentImage {
-        let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
+        for button in changePhotoViewButton {
         
-        present(activityController, animated: true, completion: nil)
-        activityController.completionWithItemsHandler = { (activityType, completed:
-        Bool, arrayReturnedItems: [Any]?, error: Error?) in
-            if completed {
-                self.sharingFinished()
-                return
-            } else {
-                print("cancel")
-                self.sharingFinished()
+            if let contentToShare = button.currentImage {
+                let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
+                
+                present(activityController, animated: true, completion: nil)
+                activityController.completionWithItemsHandler = { (activityType, completed:
+                Bool, arrayReturnedItems: [Any]?, error: Error?) in
+                    if completed {
+                        print ("finish")
+                        self.sharingFinished()
+                        return
+                    } else {
+                        print("cancel")
+                        self.sharingFinished()
+                    }
+                 }
             }
-            
-         }
         }
     }
         
