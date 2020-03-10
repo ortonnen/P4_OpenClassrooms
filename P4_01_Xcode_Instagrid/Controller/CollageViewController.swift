@@ -156,6 +156,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         for button in changePhotoViewButton {
         
             if let contentToShare = button.currentImage {
+                
                 let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
                 
                 present(activityController, animated: true, completion: nil)
@@ -169,7 +170,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                         print("cancel")
                         self.sharingFinished()
                     }
-                 }
+                }
             }
         }
     }
