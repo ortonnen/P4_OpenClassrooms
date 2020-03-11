@@ -26,7 +26,14 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         screenView.addGestureRecognizer(swipeGestureUp)
         screenView.addGestureRecognizer(swipeGestureLeft)
         
+        for button in changePhotoViewButton {
+            button.setImage(UIImage(named: "Plus"), for: .normal)
+            checkButtonName(yourButton: button)
+        }
+        
+        
         image.delegate = self
+        
         
     }
     
@@ -34,6 +41,15 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewWillTransition(to: size, with: coordinator)
         changeSwipeLabelAndArrow()
         basicViewGridCollection()
+    }
+    
+    func checkButtonName(yourButton: UIButton) {
+       if yourButton.currentImage == UIImage(named: "Plus") {
+          print("IMAGE NAME IS Plus")
+       }
+       else {
+        print("IMAGE NAME IS NOT Image_Assigned")
+       }
     }
     
     var currentButton = UIButton()
@@ -51,11 +67,11 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet var changePhotoViewButton: [UIButton]!
     
-    
     @IBAction func tapToChangePhotoButton(_ sender: UIButton) {
      
         currentButton = sender
         choosePhotoInLibrary ()
+        checkButtonName(yourButton: sender)
     }
     
     private func choosePhotoInLibrary () {
@@ -196,22 +212,26 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             
         case .firstView:
             
-            return squarePhotoViewTopLeftButton.currentImage != nil &&
-            squarePhotoViewBottomLeftButton.currentImage != nil &&
-            squarePhotoViewBottomRightButton.currentImage != nil
+            if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
+                squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
+                squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus") {
+                return true
+            }
             
         case .secondView:
             
-            return squarePhotoViewTopLeftButton.currentImage != nil &&
-            squarePhotoViewTopRightButton.currentImage != nil &&
-            squarePhotoViewBottomLeftButton.currentImage != nil
+            if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
+                squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
+                squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") {
+                return true
+            }
             
         case .thirdView:
             
-            return squarePhotoViewTopLeftButton.currentImage != nil &&
-            squarePhotoViewTopRightButton.currentImage != nil &&
-            squarePhotoViewBottomLeftButton.currentImage != nil &&
-            squarePhotoViewBottomRightButton.currentImage != nil
+            return squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
+                squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
+                squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
+                squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus")
             
         case .none:
             break
@@ -225,7 +245,6 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         UIView.animate(withDuration: 0.5) {
             self.containerPhotoView.transform = .identity
         }
-        basicViewGridCollection()
     }
    
     @IBOutlet weak var arrowLeft: UIImageView!
