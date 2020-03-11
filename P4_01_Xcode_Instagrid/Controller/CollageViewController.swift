@@ -25,31 +25,16 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         screenView.addGestureRecognizer(swipeGestureUp)
         screenView.addGestureRecognizer(swipeGestureLeft)
-        
-        for button in changePhotoViewButton {
-            button.setImage(UIImage(named: "Plus"), for: .normal)
-            checkButtonName(yourButton: button)
-        }
-        
+    
+        changeButtonImageName(for: currentButton)
         
         image.delegate = self
-        
-        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         changeSwipeLabelAndArrow()
         basicViewGridCollection()
-    }
-    
-    func checkButtonName(yourButton: UIButton) {
-       if yourButton.currentImage == UIImage(named: "Plus") {
-          print("IMAGE NAME IS Plus")
-       }
-       else {
-        print("IMAGE NAME IS NOT Image_Assigned")
-       }
     }
     
     var currentButton = UIButton()
@@ -70,12 +55,23 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func tapToChangePhotoButton(_ sender: UIButton) {
      
         currentButton = sender
+        currentButton.setImage(UIImage(named: "image"), for: .normal)
         choosePhotoInLibrary ()
+       
         checkButtonName(yourButton: sender)
     }
+
+    private func changeButtonImageName (for button : UIButton) {
+         
+          for photoButton in changePhotoViewButton {
+              
+              photoButton.setImage(UIImage(named: "Plus"), for: .normal)
+              checkButtonName(yourButton: photoButton)
+          }
+          checkButtonName(yourButton: button)
+      }
     
     private func choosePhotoInLibrary () {
-        
         
         image.allowsEditing = true
         image.sourceType = .photoLibrary
@@ -206,39 +202,48 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     private func checkIfGirdPhotoIsComplete () -> Bool {
          
-        let view = GridLayoutView (rawValue: currentButton.tag)
-        
-        switch view {
-            
-        case .firstView:
-            
-            if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
-                squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
-                squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus") {
-                return true
+        if let view = GridLayoutView (rawValue: currentButton.tag) {
+            switch view {
+            case .firstView:
+                
+                if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
+                    squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
+                    squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus") {
+                    return true
+                }
+                
+            case .secondView:
+                
+                if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
+                    squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
+                    squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") {
+                    return true
+                }
+                
+            case .thirdView:
+                
+                if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
+                    squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
+                    squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
+                    squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus") {
+                    return true
+                }
             }
-            
-        case .secondView:
-            
-            if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
-                squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
-                squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") {
-                return true
-            }
-            
-        case .thirdView:
-            
-            return squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
-                squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
-                squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
-                squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus")
-            
-        case .none:
-            break
+        } else {
+            return false
         }
         return false
     }
     
+    func checkButtonName(yourButton: UIButton) {
+        // focntion pour verifer si mes images change correctement de nom
+       if yourButton.currentImage == UIImage(named: "Plus") {
+          print("IMAGE NAME IS Plus")
+       }
+       else {
+        print("IMAGE NAME IS NOT Image_Assigned")
+       }
+    }
         
     private func sharingFinished () {
     
