@@ -85,7 +85,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    enum GridLayoutView: Int {
+    enum GridLayoutView : Int {
         case firstView = 0, secondView = 1, thirdView = 2
     }
     
@@ -148,28 +148,34 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.containerPhotoView.transform = swipeLeft
             }, completion: nil)
         }
+        
+        if checkIfGirdPhotoIsComplete() == true {
         shareImage()
+        } else {
+            print ("Error you cannot share an empty grid")
+            sharingFinished()
+        }
     }
     
+    
     private func shareImage () {
-       
-        
-            let contentToShare = imageToShare(view: containerPhotoView)
-                
-                let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
-                
-                present(activityController, animated: true, completion: nil)
-                activityController.completionWithItemsHandler = { (activityType, completed:
-                Bool, arrayReturnedItems: [Any]?, error: Error?) in
-                    if completed {
-                        print ("finish")
-                        self.sharingFinished()
-                        return
-                    } else {
-                        print("cancel")
-                        self.sharingFinished()
-                    }
-                }
+    
+        let contentToShare = imageToShare(view: containerPhotoView)
+                    
+        let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
+                    
+        present(activityController, animated: true, completion: nil)
+        activityController.completionWithItemsHandler = { (activityType, completed:
+        Bool, arrayReturnedItems: [Any]?, error: Error?) in
+            if completed {
+                print ("finish")
+                self.sharingFinished()
+                return
+            } else {
+                print("cancel")
+                self.sharingFinished()
+            }
+        }
     }
     
     private func imageToShare (view : UIView) -> UIImage {
@@ -181,6 +187,38 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         return image
     }
+    
+    private func checkIfGirdPhotoIsComplete () -> Bool {
+         
+        let view = GridLayoutView (rawValue: currentButton.tag)
+        
+        switch view {
+            
+        case .firstView:
+            
+            return squarePhotoViewTopLeftButton.currentImage != nil &&
+            squarePhotoViewBottomLeftButton.currentImage != nil &&
+            squarePhotoViewBottomRightButton.currentImage != nil
+            
+        case .secondView:
+            
+            return squarePhotoViewTopLeftButton.currentImage != nil &&
+            squarePhotoViewTopRightButton.currentImage != nil &&
+            squarePhotoViewBottomLeftButton.currentImage != nil
+            
+        case .thirdView:
+            
+            return squarePhotoViewTopLeftButton.currentImage != nil &&
+            squarePhotoViewTopRightButton.currentImage != nil &&
+            squarePhotoViewBottomLeftButton.currentImage != nil &&
+            squarePhotoViewBottomRightButton.currentImage != nil
+            
+        case .none:
+            break
+        }
+        return false
+    }
+    
         
     private func sharingFinished () {
     
