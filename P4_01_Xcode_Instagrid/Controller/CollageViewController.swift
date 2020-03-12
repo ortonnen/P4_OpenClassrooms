@@ -57,8 +57,6 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         currentButton = sender
         currentButton.setImage(UIImage(named: "image"), for: .normal)
         choosePhotoInLibrary ()
-       
-        checkButtonName(yourButton: sender)
     }
 
     private func changeButtonImageName (for button : UIButton) {
@@ -66,9 +64,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
           for photoButton in changePhotoViewButton {
               
               photoButton.setImage(UIImage(named: "Plus"), for: .normal)
-              checkButtonName(yourButton: photoButton)
           }
-          checkButtonName(yourButton: button)
       }
     
     private func choosePhotoInLibrary () {
@@ -202,8 +198,10 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     private func checkIfGirdPhotoIsComplete () -> Bool {
          
-        if let view = GridLayoutView (rawValue: currentButton.tag) {
+        if let view = GridLayoutView (rawValue: 1) {
+            
             switch view {
+                
             case .firstView:
                 
                 if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
@@ -229,22 +227,10 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                     return true
                 }
             }
-        } else {
-            return false
         }
         return false
     }
     
-    func checkButtonName(yourButton: UIButton) {
-        // focntion pour verifer si mes images change correctement de nom
-       if yourButton.currentImage == UIImage(named: "Plus") {
-          print("IMAGE NAME IS Plus")
-       }
-       else {
-        print("IMAGE NAME IS NOT Image_Assigned")
-       }
-    }
-        
     private func sharingFinished () {
     
         UIView.animate(withDuration: 0.5) {
