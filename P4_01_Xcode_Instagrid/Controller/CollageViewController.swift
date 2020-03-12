@@ -40,7 +40,8 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     var currentButton = UIButton()
     let image = UIImagePickerController()
     let screenHeight = UIScreen.main.bounds.height
-
+    var currentGrid : GridLayoutView = .none
+    
     @IBOutlet weak var containerPhotoView: UIView!
     @IBOutlet var screenView: UIView!
     @IBOutlet var selectViewbutton: [UIButton]!
@@ -88,18 +89,23 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func selectViewButton(_ sender: UIButton) {
+        
         selectGridCollection()
         selectButton(view: (CollageViewController.GridLayoutView(rawValue: sender.tag)!))
+        
+        currentGrid = GridLayoutView (rawValue: sender.tag) ?? .none
         
     }
     
     enum GridLayoutView : Int {
-        case firstView = 0, secondView = 1, thirdView = 2
+        case none = -1, firstView = 0, secondView = 1, thirdView = 2
     }
     
     private func selectButton(view : GridLayoutView) {
         
         switch view {
+        case .none :
+            break
         case .firstView:
             squarePhotoViewTopLeftButton.isHidden = false
             squarePhotoViewTopRightButton.isHidden = true
@@ -129,6 +135,8 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     private func basicViewGridCollection () {
+        
+        currentGrid = .secondView
         selectButton(view: .secondView)
         selectViewbutton[0].imageView?.isHidden = true
         selectViewbutton[1].imageView?.isHidden = false
@@ -142,7 +150,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
-        
+    
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
 
@@ -158,11 +166,11 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         if checkIfGirdPhotoIsComplete() == true {
-        shareImage()
-        } else {
-            print ("Error you cannot share an empty grid")
-            sharingFinished()
-        }
+                   shareImage()
+               } else {
+                   print ("Error you cannot share an empty grid")
+                   sharingFinished()
+               }
     }
     
     
@@ -198,9 +206,10 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     private func checkIfGirdPhotoIsComplete () -> Bool {
          
-        if let view = GridLayoutView (rawValue: 1) {
-            
-            switch view {
+            switch currentGrid {
+             
+            case .none :
+                return false
                 
             case .firstView:
                 
@@ -227,7 +236,6 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                     return true
                 }
             }
-        }
         return false
     }
     
