@@ -79,6 +79,7 @@
 		5A4AAFA42407EA64007B84F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5A4AAF9A2407CADB007B84F1 /* LaunchScreen.storyboard */,
 				5A4AAF952407CAD2007B84F1 /* Main.storyboard */,
 			);
 			path = View;
@@ -100,7 +101,6 @@
 				5A4AAF8F2407CAD2007B84F1 /* AppDelegate.swift */,
 				5A4AAF912407CAD2007B84F1 /* SceneDelegate.swift */,
 				5A4AAF982407CADB007B84F1 /* Assets.xcassets */,
-				5A4AAF9A2407CADB007B84F1 /* LaunchScreen.storyboard */,
 			);
 			path = "Other Files";
 			sourceTree = "<group>";

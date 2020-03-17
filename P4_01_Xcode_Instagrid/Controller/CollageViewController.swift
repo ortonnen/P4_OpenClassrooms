@@ -6,7 +6,6 @@
 //  Copyright © 2020 Nathalie Ortonne. All rights reserved.
 //
 /*
-
  */
 
 import UIKit
@@ -46,16 +45,14 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        basicViewGridCollection()
+         basicViewGridCollection()
         
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
         swipeGestureUp.direction = .up
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
-        swipeGestureLeft.direction = .left
-        
         screenView.addGestureRecognizer(swipeGestureUp)
         screenView.addGestureRecognizer(swipeGestureLeft)
-    
+
         changeButtonImageName(for: currentButton)
         
         image.delegate = self
@@ -63,8 +60,23 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        changeSwipeLabelAndArrow()
+        
+        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
+               swipeGestureUp.direction = .up
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
+               swipeGestureLeft.direction = .left
+        
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            screenView.addGestureRecognizer(swipeGestureLeft)
+        } else {
+            print("Portrait")
+            screenView.addGestureRecognizer(swipeGestureUp)
+            }
+        
         basicViewGridCollection()
+        changeSwipeLabelAndArrow()
+               
     }
     
     // MARK: Manipulation methods
@@ -93,9 +105,17 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @objc func swipeScreen (_ sender : UISwipeGestureRecognizer) {
-        transformSwipeView(gesture: sender, orientation: UIDevice.current.orientation)
+        transformSwipeView(gesture: sender)
     }
     // MARK: Private methods
+    
+    private func alerteIfShareIsImpossible () {
+        let alert = UIAlertController(title: "Empty Grid", message: "You can not share an empty grid", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog ("The \"OK\" alert occured")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     private func basicViewGridCollection () {
            currentGrid = .secondView
@@ -148,6 +168,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                     return true
                 }
             }
+        alerteIfShareIsImpossible()
         return false
     }
     
@@ -200,6 +221,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     private func shareImage () {
+        
         let contentToShare = imageToShare(view: containerPhotoView)
         let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
                     
@@ -223,15 +245,15 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func transformSwipeView ( gesture : UISwipeGestureRecognizer, orientation : UIDeviceOrientation) {
+    private func transformSwipeView ( gesture : UISwipeGestureRecognizer) {
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
 
-        if gesture.direction == .up && orientation.isPortrait == true {
+        if gesture.direction == .up && UIDevice.current.orientation.isPortrait == true {
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeUp
             }, completion: nil)
-        } else if gesture.direction == .left && orientation.isLandscape == true {
+        } else if gesture.direction == .left && UIDevice.current.orientation.isLandscape == true {
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeLeft
             }, completion: nil)
