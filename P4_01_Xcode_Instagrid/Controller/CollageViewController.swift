@@ -37,15 +37,16 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var currentButton = UIButton()
     var currentGrid : GridLayoutView = .none
-    let image = UIImagePickerController()
+    let pickerImage = UIImagePickerController()
     let screenHeight = UIScreen.main.bounds.height
+    let image = UIImage(named: "Plus")
     
     // MARK: - View controller lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-         basicViewGridCollection()
+        basicViewGridCollection()
         
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
         swipeGestureUp.direction = .up
@@ -55,26 +56,25 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         changeButtonImageName(for: currentButton)
         
-        image.delegate = self
+        pickerImage.delegate = self
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
+        if currentGrid != .secondView {
+            currentGrid = (GridLayoutView(rawValue: currentButton.tag) ?? .none)
+        } else {
+            basicViewGridCollection()
+        }
+        
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
                swipeGestureUp.direction = .up
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
                swipeGestureLeft.direction = .left
+        screenView.addGestureRecognizer(swipeGestureLeft)
+        screenView.addGestureRecognizer(swipeGestureUp)
         
-        if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
-            screenView.addGestureRecognizer(swipeGestureLeft)
-        } else {
-            print("Portrait")
-            screenView.addGestureRecognizer(swipeGestureUp)
-            }
-        
-        basicViewGridCollection()
         changeSwipeLabelAndArrow()
                
     }
@@ -89,7 +89,6 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func tapToChangePhotoButton(_ sender: UIButton) {
         currentButton = sender
-        currentButton.setImage(UIImage(named: "image"), for: .normal)
         choosePhotoInLibrary ()
     }
 
@@ -107,12 +106,13 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     @objc func swipeScreen (_ sender : UISwipeGestureRecognizer) {
         transformSwipeView(gesture: sender)
     }
+    
     // MARK: Private methods
     
     private func alerteIfShareIsImpossible () {
         let alert = UIAlertController(title: "Empty Grid", message: "You can not share an empty grid", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog ("The \"OK\" alert occured")
+            NSLog ("The alert occured")
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -149,35 +149,39 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             case .none :
                 return false
             case .firstView:
-                if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
-                    squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
-                    squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus") {
-                    return true
+                if squarePhotoViewTopLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
+                    squarePhotoViewBottomLeftButton.currentImage != nil &&
+                    image!.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
+                    squarePhotoViewBottomRightButton.currentImage != nil &&
+                    image!.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                    alerteIfShareIsImpossible()
+                    return false
                 }
             case .secondView:
-                if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
-                    squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
-                    squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") {
-                    return true
+                if squarePhotoViewTopLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
+                    squarePhotoViewTopRightButton.currentImage != nil && image!.isEqual(squarePhotoViewTopRightButton.currentImage) &&
+                    squarePhotoViewBottomLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewBottomLeftButton.currentImage) {
+                    alerteIfShareIsImpossible()
+                    return false
                 }
             case .thirdView:
-                if squarePhotoViewTopLeftButton.currentImage != UIImage(named: "Plus") &&
-                    squarePhotoViewTopRightButton.currentImage != UIImage(named: "Plus") &&
-                    squarePhotoViewBottomLeftButton.currentImage != UIImage(named: "Plus") &&
-                    squarePhotoViewBottomRightButton.currentImage != UIImage(named: "Plus") {
-                    return true
+                if squarePhotoViewTopLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
+                squarePhotoViewTopRightButton.currentImage != nil && image!.isEqual(squarePhotoViewTopRightButton.currentImage) &&
+                    squarePhotoViewBottomLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
+                    squarePhotoViewBottomRightButton.currentImage != nil && image!.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                    alerteIfShareIsImpossible()
+                    return false
                 }
             }
-        alerteIfShareIsImpossible()
-        return false
+        return true
     }
     
     private func choosePhotoInLibrary () {
-        image.allowsEditing = true
-        image.sourceType = .photoLibrary
-        image.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        pickerImage.allowsEditing = true
+        pickerImage.sourceType = .photoLibrary
+        pickerImage.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         
-        present(image, animated: true, completion: nil)
+        present(pickerImage, animated: true, completion: nil)
     }
     
     private func imageToShare (view : UIView) -> UIImage {
@@ -248,22 +252,20 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer) {
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
-
-        if gesture.direction == .up && UIDevice.current.orientation.isPortrait == true {
+        if checkIfGirdPhotoIsComplete() == true {
+                   shareImage()
+               }
+        if UIDevice.current.orientation.isPortrait == true {
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeUp
             }, completion: nil)
-        } else if gesture.direction == .left && UIDevice.current.orientation.isLandscape == true {
+        } else if UIDevice.current.orientation.isLandscape == true {
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeLeft
             }, completion: nil)
         }
-       if checkIfGirdPhotoIsComplete() == true {
-            shareImage()
-        } else {
-        print ("Error you cannot share an empty grid")
             sharingFinished()
-        }
+
     }
     
 }
