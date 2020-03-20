@@ -28,18 +28,18 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var squarePhotoViewBottomLeftButton: UIButton!
     @IBOutlet weak var squarePhotoViewBottomRightButton: UIButton!
     
-    @IBOutlet var selectViewbutton: [UIButton]!
+    @IBOutlet var selectViewButton: [UIButton]!
     @IBOutlet var changePhotoViewButton: [UIButton]!
     
     @IBOutlet weak var arrowLeft: UIImageView!
     @IBOutlet weak var arrowUp: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
     
-    var currentButton = UIButton()
-    var currentGrid : GridLayoutView = .none
-    let pickerImage = UIImagePickerController()
-    let screenHeight = UIScreen.main.bounds.height
-    let image = UIImage(named: "Plus")
+    private var currentButton = UIButton()
+    private var currentGrid : GridLayoutView = .none
+    private let pickerImage = UIImagePickerController()
+    private let screenHeight = UIScreen.main.bounds.height
+    
     
     // MARK: - View controller lifecycle methods
     
@@ -120,9 +120,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     private func basicViewGridCollection () {
            currentGrid = .secondView
            selectButton(view: .secondView)
-           selectViewbutton[0].imageView?.isHidden = true
-           selectViewbutton[1].imageView?.isHidden = false
-           selectViewbutton[2].imageView?.isHidden = true
+           selectViewButton[0].imageView?.isHidden = true
+           selectViewButton[1].imageView?.isHidden = false
+           selectViewButton[2].imageView?.isHidden = true
        }
     
     private func changeButtonImageName (for button : UIButton) {
@@ -144,36 +144,33 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func checkIfGirdPhotoIsComplete () -> Bool {
+    private func checkIfGridPhotoIsComplete () -> Bool {
+        guard let image = UIImage(named: "Plus") else { return false }
             switch currentGrid {
             case .none :
                 return false
             case .firstView:
-                if squarePhotoViewTopLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
-                    squarePhotoViewBottomLeftButton.currentImage != nil &&
-                    image!.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
-                    squarePhotoViewBottomRightButton.currentImage != nil &&
-                    image!.isEqual(squarePhotoViewBottomRightButton.currentImage) {
-                    alerteIfShareIsImpossible()
-                    return false
+                if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
+                    !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
+                    !image.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                    return true
                 }
             case .secondView:
-                if squarePhotoViewTopLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
-                    squarePhotoViewTopRightButton.currentImage != nil && image!.isEqual(squarePhotoViewTopRightButton.currentImage) &&
-                    squarePhotoViewBottomLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewBottomLeftButton.currentImage) {
-                    alerteIfShareIsImpossible()
-                    return false
+                if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
+                    !image.isEqual(squarePhotoViewTopRightButton.currentImage) &&
+                    !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) {
+                    return true
                 }
             case .thirdView:
-                if squarePhotoViewTopLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
-                squarePhotoViewTopRightButton.currentImage != nil && image!.isEqual(squarePhotoViewTopRightButton.currentImage) &&
-                    squarePhotoViewBottomLeftButton.currentImage != nil && image!.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
-                    squarePhotoViewBottomRightButton.currentImage != nil && image!.isEqual(squarePhotoViewBottomRightButton.currentImage) {
-                    alerteIfShareIsImpossible()
-                    return false
+                if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
+                    !image.isEqual(squarePhotoViewTopRightButton.currentImage) &&
+                    !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
+                    !image.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                    return true
                 }
             }
-        return true
+        alerteIfShareIsImpossible()
+        return false
     }
     
     private func choosePhotoInLibrary () {
@@ -215,7 +212,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     private func selectGridCollection () {
-        for button in selectViewbutton {
+        for button in selectViewButton {
             if button.isSelected == true {
                 button.imageView?.isHidden = false
             } else {
@@ -252,7 +249,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer) {
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
-        if checkIfGirdPhotoIsComplete() == true {
+        if checkIfGridPhotoIsComplete() == true {
                    shareImage()
                }
         if UIDevice.current.orientation.isPortrait == true {

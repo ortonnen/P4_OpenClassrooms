@@ -198,15 +198,15 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="n91-ah-Lsl"/>
+                                <exclude reference="CEP-ii-83y"/>
+                                <exclude reference="DM0-qK-ydP"/>
+                                <exclude reference="gTf-l7-XUu"/>
                                 <exclude reference="1hm-i6-qkV"/>
                                 <exclude reference="8k4-sg-Rrf"/>
                                 <exclude reference="DO5-Sl-PSP"/>
                                 <exclude reference="gLp-S4-Hs1"/>
                                 <exclude reference="qzQ-My-aYn"/>
                                 <exclude reference="yez-ZO-cVl"/>
-                                <exclude reference="CEP-ii-83y"/>
-                                <exclude reference="DM0-qK-ydP"/>
-                                <exclude reference="gTf-l7-XUu"/>
                                 <exclude reference="Reo-mX-iLy"/>
                                 <exclude reference="oyZ-IG-Cuy"/>
                             </mask>
@@ -217,6 +217,9 @@
                                 <include reference="n91-ah-Lsl"/>
                                 <exclude reference="rOv-fs-oYJ"/>
                                 <exclude reference="SQt-iF-u8P"/>
+                                <exclude reference="CEP-ii-83y"/>
+                                <exclude reference="DM0-qK-ydP"/>
+                                <exclude reference="gTf-l7-XUu"/>
                                 <include reference="1hm-i6-qkV"/>
                                 <exclude reference="2es-KQ-0X5"/>
                                 <exclude reference="8k4-sg-Rrf"/>
@@ -224,9 +227,6 @@
                                 <include reference="gLp-S4-Hs1"/>
                                 <include reference="qzQ-My-aYn"/>
                                 <exclude reference="yez-ZO-cVl"/>
-                                <exclude reference="CEP-ii-83y"/>
-                                <exclude reference="DM0-qK-ydP"/>
-                                <exclude reference="gTf-l7-XUu"/>
                                 <include reference="Reo-mX-iLy"/>
                                 <exclude reference="0eI-GB-4aa"/>
                                 <exclude reference="kA1-Lj-caK"/>
@@ -244,13 +244,13 @@
                         <outlet property="squarePhotoViewTopLeftButton" destination="M9Z-Ej-QSh" id="hI8-Il-qvt"/>
                         <outlet property="squarePhotoViewTopRightButton" destination="ri8-dO-1zd" id="wjc-V7-uql"/>
                         <outlet property="swipeLabel" destination="Zxt-3j-1sY" id="Hae-4p-oy0"/>
-                        <outletCollection property="selectViewbutton" destination="Jus-mP-ded" collectionClass="NSMutableArray" id="SOp-oG-5lw"/>
-                        <outletCollection property="selectViewbutton" destination="Lat-WW-LVc" collectionClass="NSMutableArray" id="fzn-Zr-bdE"/>
-                        <outletCollection property="selectViewbutton" destination="N3n-eT-fr6" collectionClass="NSMutableArray" id="Ios-J0-N00"/>
                         <outletCollection property="changePhotoViewButton" destination="max-nI-XGT" collectionClass="NSMutableArray" id="uFc-ls-FOA"/>
                         <outletCollection property="changePhotoViewButton" destination="KF4-xk-vdc" collectionClass="NSMutableArray" id="lF0-Ii-xgY"/>
                         <outletCollection property="changePhotoViewButton" destination="M9Z-Ej-QSh" collectionClass="NSMutableArray" id="d8g-Zt-ZYN"/>
                         <outletCollection property="changePhotoViewButton" destination="ri8-dO-1zd" collectionClass="NSMutableArray" id="ydb-uS-fWY"/>
+                        <outletCollection property="selectViewButton" destination="N3n-eT-fr6" collectionClass="NSMutableArray" id="voj-b0-zw1"/>
+                        <outletCollection property="selectViewButton" destination="Lat-WW-LVc" collectionClass="NSMutableArray" id="LCB-EF-nYn"/>
+                        <outletCollection property="selectViewButton" destination="Jus-mP-ded" collectionClass="NSMutableArray" id="F45-8N-1F0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
