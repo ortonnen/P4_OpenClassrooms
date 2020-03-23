@@ -50,9 +50,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
         swipeGestureUp.direction = .up
-        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
         screenView.addGestureRecognizer(swipeGestureUp)
-        screenView.addGestureRecognizer(swipeGestureLeft)
 
         changeButtonImageName(for: currentButton)
         
@@ -62,18 +60,20 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        if currentGrid != .secondView {
-            currentGrid = (GridLayoutView(rawValue: currentButton.tag) ?? .none)
-        } else {
-            basicViewGridCollection()
-        }
-        
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
-               swipeGestureUp.direction = .up
+        swipeGestureUp.direction = .up
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
-               swipeGestureLeft.direction = .left
-        screenView.addGestureRecognizer(swipeGestureLeft)
-        screenView.addGestureRecognizer(swipeGestureUp)
+        swipeGestureLeft.direction = .left
+        
+        if UIDevice.current.orientation.isPortrait == true {
+            print ("Portrait")
+            screenView.gestureRecognizers?.removeAll()
+            screenView.addGestureRecognizer(swipeGestureUp)
+        } else if UIDevice.current.orientation.isLandscape == true {
+            print ("Paysage")
+            screenView.gestureRecognizers?.removeAll()
+            screenView.addGestureRecognizer(swipeGestureLeft)
+        }
         
         changeSwipeLabelAndArrow()
                
@@ -251,7 +251,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
         if checkIfGridPhotoIsComplete() == true {
                    shareImage()
-               }
+        }
         if UIDevice.current.orientation.isPortrait == true {
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeUp
@@ -262,7 +262,6 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             }, completion: nil)
         }
             sharingFinished()
-
     }
     
 }
