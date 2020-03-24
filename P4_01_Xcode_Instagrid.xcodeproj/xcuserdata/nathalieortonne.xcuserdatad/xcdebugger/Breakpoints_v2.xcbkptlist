@@ -7,33 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BDCF33BE-16A4-4F7D-A433-433C34C8B845"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "P4_01_Xcode_Instagrid/Controller/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "selectLayout3Button()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B7DF4A27-744E-48EA-9CE7-8961BD4F5AA9"
+            uuid = "569DA2CB-15C3-4A7A-BF57-779026B82B79"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "P4_01_Xcode_Instagrid/Controller/ViewController.swift"
+            filePath = "../../../../../../../../var/folders/cf/61lfhdxd4g1gynbg00fbryf00000gn/T/DD3B6CFE-4A91-48E2-9D15-D6F41628B326/CollageViewController.swift/P4_01_Xcode_Instagrid/Controller/CollageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "SelectButtonView"
-            landmarkType = "13">
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "CollageViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

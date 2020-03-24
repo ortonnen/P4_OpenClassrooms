@@ -40,7 +40,6 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     private let pickerImage = UIImagePickerController()
     private let screenHeight = UIScreen.main.bounds.height
     
-    
     // MARK: - View controller lifecycle methods
     
     override func viewDidLoad() {
@@ -58,21 +57,21 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
+        //super.viewWillTransition(to: size, with: coordinator)
         
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
-        swipeGestureUp.direction = .up
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
+        swipeGestureUp.direction = .up
         swipeGestureLeft.direction = .left
         
-        if UIDevice.current.orientation.isPortrait == true {
-            print ("Portrait")
-            screenView.gestureRecognizers?.removeAll()
-            screenView.addGestureRecognizer(swipeGestureUp)
-        } else if UIDevice.current.orientation.isLandscape == true {
-            print ("Paysage")
+        if UIDevice.current.orientation.isLandscape {
+            print ("landscape viewWillTransition")
             screenView.gestureRecognizers?.removeAll()
             screenView.addGestureRecognizer(swipeGestureLeft)
+        } else {
+            print ("Portrait viewWillTransition")
+            screenView.gestureRecognizers?.removeAll()
+            screenView.addGestureRecognizer(swipeGestureUp)
         }
         
         changeSwipeLabelAndArrow()
@@ -134,10 +133,12 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     private func changeSwipeLabelAndArrow () {
         // change text of swipe Label and arrow orientation
         if UIDevice.current.orientation.isPortrait {
+            print ("portrait changeSwipeLabelArrow")
             swipeLabel.text = "Swipe up to share"
             arrowUp.isHidden = false
             arrowLeft.isHidden = true
         } else {
+            print ("Landscape changeSwipeLabelArrow")
             swipeLabel.text = "Swipe left to share"
             arrowUp.isHidden = true
             arrowLeft.isHidden = false
@@ -153,12 +154,14 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                 if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
                     !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
                     !image.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                    print ("first View is OK")
                     return true
                 }
             case .secondView:
                 if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
                     !image.isEqual(squarePhotoViewTopRightButton.currentImage) &&
                     !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) {
+                    print ("second View is OK")
                     return true
                 }
             case .thirdView:
@@ -166,9 +169,11 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                     !image.isEqual(squarePhotoViewTopRightButton.currentImage) &&
                     !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
                     !image.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                    print ("ThirdView is OK")
                     return true
                 }
             }
+        print ("View is not OK")
         alerteIfShareIsImpossible()
         return false
     }
@@ -249,19 +254,28 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     private func transformSwipeView ( gesture : UISwipeGestureRecognizer) {
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
+        
         if checkIfGridPhotoIsComplete() == true {
-                   shareImage()
+            print ("I check ... it's OK")
+            shareImage()
+        } else {
+            print ("I check ... hum hum it's not OK")
         }
-        if UIDevice.current.orientation.isPortrait == true {
+        
+        if UIDevice.current.orientation.isLandscape {
+            print ("landscape transformSwipeView")
+            
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeUp
             }, completion: nil)
-        } else if UIDevice.current.orientation.isLandscape == true {
+            
+        } else {
+            print ("portrait transformSwipeView")
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeLeft
             }, completion: nil)
         }
-            sharingFinished()
+        sharingFinished()
     }
     
 }
