@@ -66,16 +66,16 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if UIDevice.current.orientation.isLandscape {
             print ("landscape viewWillTransition")
+            checkCurrentGrid()
             screenView.gestureRecognizers?.removeAll()
             screenView.addGestureRecognizer(swipeGestureLeft)
         } else {
             print ("Portrait viewWillTransition")
+            checkCurrentGrid()
             screenView.gestureRecognizers?.removeAll()
             screenView.addGestureRecognizer(swipeGestureUp)
         }
-        
         changeSwipeLabelAndArrow()
-               
     }
     
     // MARK: Manipulation methods
@@ -144,7 +144,13 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             arrowLeft.isHidden = false
         }
     }
-    
+    private func checkCurrentGrid () {
+        if currentGrid != GridLayoutView (rawValue: currentButton.tag) {
+                   basicViewGridCollection()
+               } else {
+                   currentGrid = GridLayoutView (rawValue: currentButton.tag) ?? .none
+               }
+    }
     private func checkIfGridPhotoIsComplete () -> Bool {
         guard let image = UIImage(named: "Plus") else { return false }
             switch currentGrid {
@@ -169,7 +175,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                     !image.isEqual(squarePhotoViewTopRightButton.currentImage) &&
                     !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
                     !image.isEqual(squarePhotoViewBottomRightButton.currentImage) {
-                    print ("ThirdView is OK")
+                    print ("Third View is OK")
                     return true
                 }
             }
