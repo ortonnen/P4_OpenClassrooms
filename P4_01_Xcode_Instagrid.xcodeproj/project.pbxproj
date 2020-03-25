@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A4AAF8C2407CAD2007B84F1 /* P4_01_Xcode_Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P4_01_Xcode_Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A4AAF8C2407CAD2007B84F1 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4AAF8F2407CAD2007B84F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A4AAF912407CAD2007B84F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5A4AAF932407CAD2007B84F1 /* CollageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		5A4AAF8D2407CAD2007B84F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A4AAF8C2407CAD2007B84F1 /* P4_01_Xcode_Instagrid.app */,
+				5A4AAF8C2407CAD2007B84F1 /* Instagrid.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			);
 			name = P4_01_Xcode_Instagrid;
 			productName = P4_01_Xcode_Instagrid;
-			productReference = 5A4AAF8C2407CAD2007B84F1 /* P4_01_Xcode_Instagrid.app */;
+			productReference = 5A4AAF8C2407CAD2007B84F1 /* Instagrid.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -332,7 +332,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.nathalieortonne.P4-01-Xcode-Instagrid";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Instagrid;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -350,7 +350,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.nathalieortonne.P4-01-Xcode-Instagrid";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Instagrid;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

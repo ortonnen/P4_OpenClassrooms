@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A4AAF8B2407CAD2007B84F1"
-               BuildableName = "P4_01_Xcode_Instagrid.app"
+               BuildableName = "Instagrid.app"
                BlueprintName = "P4_01_Xcode_Instagrid"
                ReferencedContainer = "container:P4_01_Xcode_Instagrid.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A4AAF8B2407CAD2007B84F1"
-            BuildableName = "P4_01_Xcode_Instagrid.app"
+            BuildableName = "Instagrid.app"
             BlueprintName = "P4_01_Xcode_Instagrid"
             ReferencedContainer = "container:P4_01_Xcode_Instagrid.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A4AAF8B2407CAD2007B84F1"
-            BuildableName = "P4_01_Xcode_Instagrid.app"
+            BuildableName = "Instagrid.app"
             BlueprintName = "P4_01_Xcode_Instagrid"
             ReferencedContainer = "container:P4_01_Xcode_Instagrid.xcodeproj">
          </BuildableReference>

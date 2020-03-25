@@ -57,7 +57,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        //super.viewWillTransition(to: size, with: coordinator)
+        super.viewWillTransition(to: size, with: coordinator)
         
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
@@ -145,36 +145,36 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     private func checkCurrentGrid () {
-        if currentGrid != GridLayoutView (rawValue: currentButton.tag) {
+        if currentGrid  == .secondView  {
                    basicViewGridCollection()
                } else {
                    currentGrid = GridLayoutView (rawValue: currentButton.tag) ?? .none
                }
     }
     private func checkIfGridPhotoIsComplete () -> Bool {
-        guard let image = UIImage(named: "Plus") else { return false }
+        guard let image = UIImage(named: "Plus")?.pngData() else { return false }
             switch currentGrid {
             case .none :
                 return false
             case .firstView:
-                if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
-                    !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
-                    !image.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                if  image != squarePhotoViewTopLeftButton.currentImage?.pngData() &&
+                    image != squarePhotoViewBottomLeftButton.currentImage?.pngData() &&
+                    image != squarePhotoViewBottomRightButton.currentImage?.pngData() {
                     print ("first View is OK")
                     return true
                 }
             case .secondView:
-                if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
-                    !image.isEqual(squarePhotoViewTopRightButton.currentImage) &&
-                    !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) {
+                if  image != squarePhotoViewTopLeftButton.currentImage?.pngData() &&
+                    image != squarePhotoViewTopRightButton.currentImage?.pngData() &&
+                    image != squarePhotoViewBottomLeftButton.currentImage?.pngData() {
                     print ("second View is OK")
                     return true
                 }
             case .thirdView:
-                if  !image.isEqual(squarePhotoViewTopLeftButton.currentImage) &&
-                    !image.isEqual(squarePhotoViewTopRightButton.currentImage) &&
-                    !image.isEqual(squarePhotoViewBottomLeftButton.currentImage) &&
-                    !image.isEqual(squarePhotoViewBottomRightButton.currentImage) {
+                if  image != squarePhotoViewTopLeftButton.currentImage?.pngData() &&
+                    image != squarePhotoViewTopRightButton.currentImage?.pngData() &&
+                    image != squarePhotoViewBottomLeftButton.currentImage?.pngData() &&
+                    image != squarePhotoViewBottomRightButton.currentImage?.pngData() {
                     print ("Third View is OK")
                     return true
                 }
