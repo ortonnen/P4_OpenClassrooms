@@ -15,7 +15,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: Enum
     
     enum GridLayoutView : Int {
-        case none = -1, firstView = 0, secondView = 1, thirdView = 2
+        case none = -1 ,firstView = 0, secondView = 1, thirdView = 2
     }
     
     // MARK: Properties
@@ -54,6 +54,8 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         changeButtonImageName(for: currentButton)
         
         pickerImage.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -66,16 +68,25 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if UIDevice.current.orientation.isLandscape {
             print ("landscape viewWillTransition")
-            checkCurrentGrid()
             screenView.gestureRecognizers?.removeAll()
             screenView.addGestureRecognizer(swipeGestureLeft)
         } else {
             print ("Portrait viewWillTransition")
-            checkCurrentGrid()
             screenView.gestureRecognizers?.removeAll()
             screenView.addGestureRecognizer(swipeGestureUp)
         }
         changeSwipeLabelAndArrow()
+    }
+    
+    @ objc private func rotated () {
+        if UIDevice.current.orientation.isLandscape {
+            print ("landscape rotated")
+            checkCurrentGrid()
+        } else {
+            print ("portrait rotated")
+            checkCurrentGrid()
+        }
+        
     }
     
     // MARK: Manipulation methods
@@ -133,24 +144,24 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     private func changeSwipeLabelAndArrow () {
         // change text of swipe Label and arrow orientation
         if UIDevice.current.orientation.isPortrait {
-            print ("portrait changeSwipeLabelArrow")
             swipeLabel.text = "Swipe up to share"
             arrowUp.isHidden = false
             arrowLeft.isHidden = true
         } else {
-            print ("Landscape changeSwipeLabelArrow")
             swipeLabel.text = "Swipe left to share"
             arrowUp.isHidden = true
             arrowLeft.isHidden = false
         }
     }
+    
     private func checkCurrentGrid () {
         if currentGrid  == .secondView  {
-                   basicViewGridCollection()
-               } else {
-                   currentGrid = GridLayoutView (rawValue: currentButton.tag) ?? .none
-               }
+            basicViewGridCollection()
+        } else {
+            currentGrid = GridLayoutView (rawValue: currentButton.tag) ?? .none
+        }
     }
+    
     private func checkIfGridPhotoIsComplete () -> Bool {
         guard let image = UIImage(named: "Plus")?.pngData() else { return false }
             switch currentGrid {
