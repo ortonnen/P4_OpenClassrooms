@@ -58,36 +58,23 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
+   // override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+     //   super.viewWillTransition(to: size, with: coordinator)
         
-        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
-        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
-        swipeGestureUp.direction = .up
-        swipeGestureLeft.direction = .left
+        //let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
+        //let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
+        //swipeGestureUp.direction = .up
+        //swipeGestureLeft.direction = .left
         
-        if UIDevice.current.orientation.isLandscape {
-            print ("landscape viewWillTransition")
-            screenView.gestureRecognizers?.removeAll()
-            screenView.addGestureRecognizer(swipeGestureLeft)
-        } else {
-            print ("Portrait viewWillTransition")
-            screenView.gestureRecognizers?.removeAll()
-            screenView.addGestureRecognizer(swipeGestureUp)
-        }
-        changeSwipeLabelAndArrow()
-    }
-    
-    @ objc private func rotated () {
-        if UIDevice.current.orientation.isLandscape {
-            print ("landscape rotated")
-            checkCurrentGrid()
-        } else {
-            print ("portrait rotated")
-            checkCurrentGrid()
-        }
-        
-    }
+      //  if UIDevice.current.orientation.isLandscape
+          //  screenView.gestureRecognizers?.removeAll()
+            //screenView.addGestureRecognizer(swipeGestureLeft)
+        //} else {
+            //screenView.gestureRecognizers?.removeAll()
+            //screenView.addGestureRecognizer(swipeGestureUp)
+        //}
+       // changeSwipeLabelAndArrow()
+   // }
     
     // MARK: Manipulation methods
     
@@ -171,14 +158,12 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                 if  image != squarePhotoViewTopLeftButton.currentImage?.pngData() &&
                     image != squarePhotoViewBottomLeftButton.currentImage?.pngData() &&
                     image != squarePhotoViewBottomRightButton.currentImage?.pngData() {
-                    print ("first View is OK")
                     return true
                 }
             case .secondView:
                 if  image != squarePhotoViewTopLeftButton.currentImage?.pngData() &&
                     image != squarePhotoViewTopRightButton.currentImage?.pngData() &&
                     image != squarePhotoViewBottomLeftButton.currentImage?.pngData() {
-                    print ("second View is OK")
                     return true
                 }
             case .thirdView:
@@ -186,11 +171,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
                     image != squarePhotoViewTopRightButton.currentImage?.pngData() &&
                     image != squarePhotoViewBottomLeftButton.currentImage?.pngData() &&
                     image != squarePhotoViewBottomRightButton.currentImage?.pngData() {
-                    print ("Third View is OK")
                     return true
                 }
             }
-        print ("View is not OK")
         alerteIfShareIsImpossible()
         return false
     }
@@ -209,6 +192,24 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             containerPhotoView.drawHierarchy(in: containerPhotoView.bounds, afterScreenUpdates: true)
         }
         return image
+    }
+    
+    @ objc private func rotated () {
+        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
+        swipeGestureUp.direction = .up
+        swipeGestureLeft.direction = .left
+        
+        if UIDevice.current.orientation.isLandscape {
+            screenView.gestureRecognizers?.removeAll()
+            screenView.addGestureRecognizer(swipeGestureLeft)
+            checkCurrentGrid()
+        } else {
+            screenView.gestureRecognizers?.removeAll()
+            screenView.addGestureRecognizer(swipeGestureUp)
+            checkCurrentGrid()
+        }
+        changeSwipeLabelAndArrow()
     }
     
     private func selectButton(view : GridLayoutView) {
@@ -252,11 +253,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         activityController.completionWithItemsHandler = { (activityType, completed:
         Bool, arrayReturnedItems: [Any]?, error: Error?) in
             if completed {
-                print ("finish")
                 self.sharingFinished()
                 return
                     } else {
-                print("cancel")
                 self.sharingFinished()
             }
         }
@@ -273,21 +272,14 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
         
         if checkIfGridPhotoIsComplete() == true {
-            print ("I check ... it's OK")
             shareImage()
-        } else {
-            print ("I check ... hum hum it's not OK")
         }
         
         if UIDevice.current.orientation.isLandscape {
-            print ("landscape transformSwipeView")
-            
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeUp
             }, completion: nil)
-            
         } else {
-            print ("portrait transformSwipeView")
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerPhotoView.transform = swipeLeft
             }, completion: nil)
