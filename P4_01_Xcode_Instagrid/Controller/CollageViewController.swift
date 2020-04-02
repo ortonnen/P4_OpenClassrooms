@@ -84,13 +84,20 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // MARK: Private methods
     
-    private func alerteIfShareIsImpossible () {
+    private func alerteIfShareIsImpossible() {
         let alert = UIAlertController(title: "Empty Grid", message: "You can not share an empty grid", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func basicViewGridCollection () {
+    private func assignButtonImageName(for button : UIButton) {
+        //Used to compare images
+        for photoButton in changePhotoViewButton {
+            photoButton.setImage(UIImage(named: "Plus"), for: .normal)
+        }
+    }
+    
+    private func basicViewGridCollection() {
        // Grid desired by default
         currentGrid = .secondView
         selectButton(view: .secondView)
@@ -99,14 +106,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         selectViewButton[2].imageView?.isHidden = true
     }
     
-    private func assignButtonImageName (for button : UIButton) {
-        //Used to compare images
-        for photoButton in changePhotoViewButton {
-            photoButton.setImage(UIImage(named: "Plus"), for: .normal)
-         }
-    }
-    
-    private func changeSwipeLabelAndArrow () {
+    private func changeSwipeLabelAndArrow() {
         // Change text of swipe Label and arrow orientation
         if UIDevice.current.orientation.isPortrait {
             swipeLabel.text = "Swipe up to share"
@@ -119,7 +119,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func checkCurrentGrid () {
+    private func checkCurrentGrid() {
         // Keep the grid selected by the user
        if currentGrid  == .secondView  {
           basicViewGridCollection()
@@ -128,7 +128,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func checkIfGridPhotoIsComplete () -> Bool {
+    private func checkIfGridPhotoIsComplete() -> Bool {
         // share if all photoViewButton have an image
         guard let image = UIImage(named: "Plus")?.pngData() else { return false }
             switch currentGrid {
@@ -157,14 +157,14 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         return false
     }
     
-    private func choosePhotoInLibrary () {
+    private func choosePhotoInLibrary() {
         pickerImage.allowsEditing = true
         pickerImage.sourceType = .photoLibrary
         pickerImage.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(pickerImage, animated: true, completion: nil)
     }
     
-    private func imageToShare (view : UIView) -> UIImage {
+    private func imageToShare(view : UIView) -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: containerPhotoView.bounds)
         let image = renderer.image { context in
             containerPhotoView.drawHierarchy(in: containerPhotoView.bounds, afterScreenUpdates: true)
@@ -172,7 +172,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         return image
     }
     
-    @ objc private func rotated () {
+    @ objc private func rotated() {
         // Taking into account the change of orientation
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
@@ -212,7 +212,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func selectGridCollection () {
+    private func selectGridCollection() {
         // button is selected or not
         for button in selectViewButton {
             if button.isSelected == true {
@@ -223,7 +223,7 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func shareImage () {
+    private func shareImage() {
         let contentToShare = imageToShare(view: containerPhotoView)
         let activityController = UIActivityViewController(activityItems: [contentToShare], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
@@ -233,13 +233,13 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    private func sharingFinished () {
+    private func sharingFinished() {
         UIView.animate(withDuration: 0.5) {
             self.containerPhotoView.transform = .identity
         }
     }
     
-    private func transformSwipeView (gesture : UISwipeGestureRecognizer) {
+    private func transformSwipeView(gesture : UISwipeGestureRecognizer) {
         // animation to share grid
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
@@ -262,7 +262,6 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             alerteIfShareIsImpossible()
         }
     }
-    
 }
 
 
