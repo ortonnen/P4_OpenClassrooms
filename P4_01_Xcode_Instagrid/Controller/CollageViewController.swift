@@ -5,8 +5,6 @@
 //  Created by Nathalie Ortonne on 27/02/2020.
 //  Copyright © 2020 Nathalie Ortonne. All rights reserved.
 //
-/*
- */
 
 import UIKit
 
@@ -82,32 +80,32 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         transformSwipeView(gesture: sender)
     }
     
-    // MARK: Private methods
+    // MARK: Internal methods
     
     private func alerteIfShareIsImpossible() {
         let alert = UIAlertController(title: "Empty Grid", message: "You can not share an empty grid", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
-    
+
+    ///Used to compare images
     private func assignButtonImageName(for button : UIButton) {
-        //Used to compare images
         for photoButton in changePhotoViewButton {
             photoButton.setImage(UIImage(named: "Plus"), for: .normal)
         }
     }
-    
+
+    /// Grid desired by default
     private func basicViewGridCollection() {
-       // Grid desired by default
         currentGrid = .secondView
         selectButton(view: .secondView)
         selectViewButton[0].imageView?.isHidden = true
         selectViewButton[1].imageView?.isHidden = false
         selectViewButton[2].imageView?.isHidden = true
     }
-    
+
+    /// Change text of swipe Label and arrow orientation
     private func changeSwipeLabelAndArrow() {
-        // Change text of swipe Label and arrow orientation
         if UIDevice.current.orientation.isPortrait {
             swipeLabel.text = "Swipe up to share"
             arrowUp.isHidden = false
@@ -118,18 +116,18 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             arrowLeft.isHidden = false
         }
     }
-    
+
+    /// Keep the grid selected by the user
     private func checkCurrentGrid() {
-        // Keep the grid selected by the user
        if currentGrid  == .secondView  {
           basicViewGridCollection()
        } else {
             currentGrid = GridLayoutView(rawValue: currentButton.tag) ?? .none
         }
     }
-    
+
+    /// share if all photoViewButton have an image
     private func checkIfGridPhotoIsComplete() -> Bool {
-        // share if all photoViewButton have an image
         guard let image = UIImage(named: "Plus")?.pngData() else { return false }
             switch currentGrid {
             case .none :
@@ -171,9 +169,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         return image
     }
-    
+
+    /// Taking into account the change of orientation
     @ objc private func rotated() {
-        // Taking into account the change of orientation
         let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector (swipeScreen(_:)))
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeScreen(_:)))
         swipeGestureUp.direction = .up
@@ -188,9 +186,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         changeSwipeLabelAndArrow()
     }
-    
+
+    /// Change Grid Layout View
     private func selectButton(view : GridLayoutView) {
-        // Change Grid Layout View
         switch view {
         case .none :
             break
@@ -211,9 +209,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             squarePhotoViewBottomRightButton.isHidden = false
         }
     }
-    
+
+    /// button is selected or not
     private func selectGridCollection() {
-        // button is selected or not
         for button in selectViewButton {
             if button.isSelected == true {
                 button.imageView?.isHidden = false
@@ -238,9 +236,9 @@ class CollageViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.containerPhotoView.transform = .identity
         }
     }
-    
+
+    /// animation to share grid
     private func transformSwipeView(gesture : UISwipeGestureRecognizer) {
-        // animation to share grid
         let swipeUp = CGAffineTransform(translationX: 0, y: -screenHeight)
         let swipeLeft = CGAffineTransform(translationX: -screenHeight, y: 0)
         if checkIfGridPhotoIsComplete() == true {
